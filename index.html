@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IIQE 试卷一 · 保险原理及实务 · 交互学习</title>
+<title>IIQE 试卷一 · 保险原理及实务 · 精学通关</title>
 <style>
 :root {
   --bg: #f5f5f7;
@@ -15,14 +15,14 @@
   --border: #d2d2d7;
   --sidebar: #1d1d1f;
   --sidebar-text: #f5f5f7;
-  --sidebar-w: 280px;
+  --sidebar-w: 290px;
   --green: #34c759;
   --orange: #ff9500;
   --red: #ff3b30;
   --purple: #af52de;
   --teal: #5ac8fa;
-  --quiz-correct: #e8f8e8;
-  --quiz-wrong: #fde8e8;
+  --pink: #ff2d55;
+  --card-shadow: 0 1px 3px rgba(0,0,0,.08);
 }
 body.dark {
   --bg: #1c1c1e;
@@ -34,15 +34,14 @@ body.dark {
   --accent2: #90caf9;
   --sidebar: #000000;
   --sidebar-text: #f5f5f7;
-  --quiz-correct: #1a3a1a;
-  --quiz-wrong: #3a1a1a;
+  --card-shadow: 0 1px 3px rgba(0,0,0,.3);
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", "PingFang SC", sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.7;
+  line-height: 1.75;
   display: flex;
   min-height: 100vh;
   transition: background .3s, color .3s;
@@ -54,19 +53,19 @@ body {
   background: var(--sidebar);
   color: var(--sidebar-text);
   overflow-y: auto; z-index: 100;
-  padding: 24px 0;
+  padding: 20px 0;
   transition: transform .3s;
 }
 .sidebar h2 {
-  font-size: 18px; font-weight: 600;
-  padding: 0 20px 16px;
+  font-size: 17px; font-weight: 600;
+  padding: 0 18px 14px;
   border-bottom: 1px solid rgba(255,255,255,.1);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 .sidebar .progress-bar-wrap {
-  margin: 0 20px 16px;
-  height: 6px;
-  background: rgba(255,255,255,.15);
+  margin: 0 18px 12px;
+  height: 5px;
+  background: rgba(255,255,255,.12);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -78,228 +77,105 @@ body {
   transition: width .5s;
 }
 .sidebar .progress-text {
-  font-size: 12px;
-  color: rgba(255,255,255,.6);
-  margin: -8px 20px 16px;
+  font-size: 11px;
+  color: rgba(255,255,255,.5);
+  margin: -6px 18px 14px;
   text-align: right;
 }
 .sidebar a {
-  display: block;
-  padding: 10px 20px;
-  color: rgba(255,255,255,.7);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 18px;
+  color: rgba(255,255,255,.65);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   border-left: 3px solid transparent;
   transition: all .2s;
 }
-.sidebar a:hover { background: rgba(255,255,255,.08); color: #fff; }
+.sidebar a:hover { background: rgba(255,255,255,.07); color: #fff; }
 .sidebar a.active {
   color: #fff;
-  background: rgba(255,255,255,.12);
+  background: rgba(255,255,255,.1);
   border-left-color: var(--accent);
 }
 .sidebar .ch-weight {
-  display: inline-block;
-  font-size: 11px;
-  padding: 1px 8px;
+  font-size: 10px;
+  padding: 1px 7px;
   border-radius: 10px;
-  margin-left: 6px;
   font-weight: 500;
+  flex-shrink: 0;
 }
 .ch-w-3 { background: var(--orange); color: #fff; }
 .ch-w-6 { background: var(--purple); color: #fff; }
 .ch-w-2 { background: var(--accent); color: #fff; }
 .ch-w-1 { background: var(--teal); color: #000; }
 .ch-w-4 { background: var(--green); color: #fff; }
-.ch-w-7 { background: var(--red); color: #fff; }
+.ch-w-7 { background: var(--pink); color: #fff; }
 .ch-w-5 { background: var(--text2); color: #fff; }
 
 /* Main */
 .main {
   margin-left: var(--sidebar-w);
   flex: 1;
-  padding: 40px;
-  max-width: 900px;
+  padding: 36px 44px 60px;
+  max-width: 960px;
 }
-.section {
-  display: none;
-  animation: fade .3s;
-}
+.section { display: none; animation: fade .35s ease; }
 .section.active { display: block; }
-@keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fade { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 
-h1 { font-size: 28px; margin-bottom: 12px; }
-h2 { font-size: 22px; margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
-h3 { font-size: 18px; margin: 24px 0 10px; color: var(--text); }
-h4 { font-size: 16px; margin: 18px 0 8px; }
+h1 { font-size: 26px; margin-bottom: 10px; }
+h2 { font-size: 21px; margin: 28px 0 12px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); }
+h3 { font-size: 17px; margin: 22px 0 10px; color: var(--text); }
+h4 { font-size: 15px; margin: 16px 0 8px; }
 
 .card {
   background: var(--card);
   border-radius: 12px;
-  padding: 20px 24px;
-  margin-bottom: 16px;
+  padding: 18px 22px;
+  margin-bottom: 14px;
   border: 1px solid var(--border);
+  box-shadow: var(--card-shadow);
 }
+.card-compact { padding: 12px 16px; }
 .tag {
   display: inline-block;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   padding: 2px 10px;
   border-radius: 12px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 .tag-important { background: #fff2d6; color: #c07600; }
 .tag-star { background: #ffe0e0; color: #c41e1e; }
 .tag-info { background: #d6ecff; color: #0055aa; }
 .tag-green { background: #d6ffd6; color: #006600; }
+.tag-purple { background: #e8d6ff; color: #6b00b3; }
+.tag-orange { background: #ffe8cc; color: #994d00; }
+.tag-pink { background: #ffd6e8; color: #99004d; }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 12px 0;
+/* Plain speak box */
+.plain-box {
+  background: linear-gradient(135deg, rgba(0,113,227,.04), rgba(0,113,227,.08));
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  margin: 10px 0;
   font-size: 14px;
 }
-th, td {
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  text-align: left;
-  vertical-align: top;
-}
-th {
-  background: var(--accent);
-  color: #fff;
-  font-weight: 600;
-  font-size: 13px;
-}
-tr:nth-child(even) { background: rgba(0,0,0,.02); }
-body.dark tr:nth-child(even) { background: rgba(255,255,255,.03); }
+.plain-box strong { color: var(--accent); }
 
-/* Weight bar */
-.weight-bar-wrap {
-  display: flex; align-items: center;
-  margin: 8px 0 4px;
-  cursor: pointer;
-}
-.weight-bar-label {
-  width: 100px; font-size: 13px; font-weight: 500;
-  flex-shrink: 0;
-}
-.weight-bar-track {
-  flex: 1; height: 24px;
-  background: var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  position: relative;
-}
-.weight-bar-fill {
-  height: 100%;
-  border-radius: 12px;
-  transition: width .8s ease;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 8px;
-  font-size: 11px;
-  font-weight: 600;
-  color: #fff;
-  min-width: 40px;
-}
-.weight-pct { font-size: 12px; width: 40px; text-align: right; color: var(--text2); }
-
-/* Checklist */
-.checklist { margin: 12px 0; }
-.checklist label {
-  display: flex; align-items: center;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background .2s;
-}
-.checklist label:hover { background: rgba(0,0,0,.04); }
-body.dark .checklist label:hover { background: rgba(255,255,255,.06); }
-.checklist input[type="checkbox"] {
-  width: 18px; height: 18px;
-  margin-right: 10px;
-  accent-color: var(--green);
-}
-.checklist .checked { text-decoration: line-through; color: var(--text2); }
-
-/* Quiz */
-.quiz-question {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 16px;
-  transition: all .3s;
-}
-.quiz-question h4 { margin: 0 0 4px; font-size: 15px; }
-.quiz-meta { font-size: 12px; color: var(--text2); margin-bottom: 10px; }
-.quiz-option {
-  display: flex; align-items: flex-start;
-  padding: 10px 14px;
-  margin: 4px 0;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all .2s;
+/* Case study */
+.case-box {
+  background: linear-gradient(135deg, rgba(175,82,222,.04), rgba(175,82,222,.08));
+  border-left: 4px solid var(--purple);
+  border-radius: 0 10px 10px 0;
+  padding: 14px 18px;
+  margin: 10px 0;
   font-size: 14px;
 }
-.quiz-option:hover { border-color: var(--accent); background: rgba(0,113,227,.04); }
-.quiz-option input { margin-right: 10px; margin-top: 3px; }
-.quiz-option.correct {
-  background: var(--quiz-correct);
-  border-color: var(--green);
-}
-.quiz-option.wrong {
-  background: var(--quiz-wrong);
-  border-color: var(--red);
-}
-.quiz-option.disabled { opacity: .7; pointer-events: none; }
-.quiz-feedback {
-  margin-top: 10px;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 14px;
-  display: none;
-}
-.quiz-feedback.show { display: block; }
-.quiz-feedback.correct { background: var(--quiz-correct); border-left: 4px solid var(--green); }
-.quiz-feedback.wrong { background: var(--quiz-wrong); border-left: 4px solid var(--red); }
-.quiz-score {
-  text-align: center;
-  padding: 16px;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-/* Tips grid */
-.tips-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 12px;
-  margin: 16px 0;
-}
-.tip-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 14px 16px;
-}
-.tip-card .num {
-  display: inline-block;
-  width: 24px; height: 24px;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 24px;
-  font-size: 12px;
-  font-weight: 600;
-  margin-right: 8px;
-}
-.tip-card h4 { display: inline; font-size: 14px; }
-.tip-card p { font-size: 13px; color: var(--text2); margin-top: 6px; }
+.case-box strong { color: var(--purple); }
 
 /* Comparison */
 .comparison {
@@ -311,60 +187,241 @@ body.dark .checklist label:hover { background: rgba(255,255,255,.06); }
   overflow: hidden;
   margin: 12px 0;
 }
-.comp-left, .comp-right {
-  padding: 14px 16px;
-  font-size: 14px;
-}
-.comp-left { background: rgba(0,113,227,.06); }
-.comp-right { background: rgba(175,82,222,.06); }
+.comp-col { }
 .comp-header {
-  padding: 8px 16px;
+  padding: 8px 14px;
   font-weight: 600;
   text-align: center;
   font-size: 13px;
 }
 .comp-left .comp-header { background: var(--accent); color: #fff; }
 .comp-right .comp-header { background: var(--purple); color: #fff; }
+.comp-items { padding: 10px 14px; font-size: 13px; }
+.comp-left .comp-items { background: rgba(0,113,227,.04); }
+.comp-right .comp-items { background: rgba(175,82,222,.04); }
+.comp-items strong { display: block; margin-bottom: 4px; font-size: 14px; }
 
-/* App terms */
-.app-term { font-size: 14px; }
-.app-term s { color: var(--red); text-decoration: line-through; }
-.app-term code {
-  background: var(--border);
-  padding: 1px 6px;
-  border-radius: 4px;
+/* Knowledge card (flashcard style) */
+.flashcard-wrap {
+  perspective: 1200px;
+  margin-bottom: 14px;
+}
+.flashcard {
+  position: relative;
+  width: 100%;
+  min-height: 120px;
+  cursor: pointer;
+  transition: transform .5s;
+  transform-style: preserve-3d;
+}
+.flashcard.flipped { transform: rotateX(180deg); }
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.flashcard-front {
+  background: var(--card);
+  box-shadow: var(--card-shadow);
+}
+.flashcard-back {
+  background: linear-gradient(135deg, rgba(0,113,227,.06), rgba(175,82,222,.06));
+  transform: rotateX(180deg);
+  border-left: 4px solid var(--accent);
+}
+.flashcard .hint {
+  font-size: 11px;
+  color: var(--text2);
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 14px;
+}
+th, td {
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
   font-size: 13px;
+}
+tr:nth-child(even) { background: rgba(0,0,0,.015); }
+body.dark tr:nth-child(even) { background: rgba(255,255,255,.02); }
+
+/* Weight bars */
+.weight-bar-wrap {
+  display: flex; align-items: center;
+  margin: 6px 0 3px;
+  cursor: pointer;
+}
+.weight-bar-label {
+  width: 120px; font-size: 13px; font-weight: 500;
+  flex-shrink: 0;
+}
+.weight-bar-track {
+  flex: 1; height: 22px;
+  background: var(--border);
+  border-radius: 11px;
+  overflow: hidden;
+  position: relative;
+}
+.weight-bar-fill {
+  height: 100%;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #fff;
+  min-width: 36px;
+}
+.weight-pct { font-size: 11px; width: 40px; text-align: right; color: var(--text2); }
+
+/* Quiz */
+.quiz-question {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: var(--card-shadow);
+}
+.quiz-question h4 { margin: 0 0 3px; font-size: 14px; line-height: 1.6; }
+.quiz-meta { font-size: 11px; color: var(--text2); margin-bottom: 8px; }
+.quiz-option {
+  display: flex; align-items: flex-start;
+  padding: 9px 13px;
+  margin: 3px 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all .2s;
+  font-size: 13px;
+}
+.quiz-option:hover { border-color: var(--accent); background: rgba(0,113,227,.03); }
+.quiz-option input { margin-right: 9px; margin-top: 2px; }
+.quiz-option.correct {
+  background: #e8f8e8 !important;
+  border-color: var(--green) !important;
+}
+body.dark .quiz-option.correct { background: #1a3a1a !important; }
+.quiz-option.wrong {
+  background: #fde8e8 !important;
+  border-color: var(--red) !important;
+}
+body.dark .quiz-option.wrong { background: #3a1a1a !important; }
+.quiz-option.disabled { opacity: .7; pointer-events: none; }
+.quiz-feedback {
+  margin-top: 8px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  display: none;
+}
+.quiz-feedback.show { display: block; }
+.quiz-feedback.correct { background: #e8f8e8; border-left: 4px solid var(--green); }
+body.dark .quiz-feedback.correct { background: #1a3a1a; }
+.quiz-feedback.wrong { background: #fde8e8; border-left: 4px solid var(--red); }
+body.dark .quiz-feedback.wrong { background: #3a1a1a; }
+
+/* Flashcards study mode */
+.study-mode .flashcard { min-height: 140px; }
+.study-controls {
+  display: flex;
+  gap: 10px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .2s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: var(--accent2); }
+.btn-secondary { background: var(--border); color: var(--text); }
+.btn-secondary:hover { opacity: .8; }
+.btn-success { background: var(--green); color: #fff; }
+.btn-danger { background: var(--red); color: #fff; }
+
+/* Glossary */
+.glossary-term {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background .2s;
+}
+.glossary-term:hover { background: rgba(0,113,227,.03); }
+.glossary-term .term-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--accent);
+}
+.glossary-term .term-def {
+  font-size: 13px;
+  color: var(--text2);
+  margin-top: 2px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .3s, margin .3s;
+}
+.glossary-term.open .term-def {
+  max-height: 200px;
+  margin-top: 6px;
 }
 
 /* Night toggle */
 .night-toggle {
   position: fixed;
-  bottom: 20px; left: 20px;
-  z-index: 200;
+  bottom: 18px; left: 18px;
+  z-index: 201;
   background: var(--card);
   border: 1px solid var(--border);
   border-radius: 30px;
-  padding: 8px 14px;
+  padding: 7px 13px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   box-shadow: 0 2px 8px rgba(0,0,0,.1);
   transition: all .2s;
 }
 .night-toggle:hover { transform: scale(1.05); }
 
-/* Mobile hamburger */
+/* Mobile */
 .hamburger {
   display: none;
   position: fixed;
-  top: 12px; left: 12px;
+  top: 10px; left: 10px;
   z-index: 300;
   background: var(--sidebar);
   color: #fff;
   border: none;
   border-radius: 8px;
-  width: 40px; height: 40px;
-  font-size: 20px;
+  width: 38px; height: 38px;
+  font-size: 18px;
   cursor: pointer;
   align-items: center;
   justify-content: center;
@@ -376,82 +433,128 @@ body.dark .checklist label:hover { background: rgba(255,255,255,.06); }
   z-index: 99;
 }
 
+/* Tags list */
+.tag-list { display: flex; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
+
+/* Features grid */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.feature-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.feature-card .icon { font-size: 28px; margin-bottom: 6px; }
+.feature-card h4 { font-size: 14px; margin: 0 0 4px; }
+.feature-card p { font-size: 12px; color: var(--text2); }
+
+/* Steps */
+.steps { counter-reset: step; margin: 10px 0; }
+.step-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.step-item:last-child { border-bottom: none; }
+.step-num {
+  width: 26px; height: 26px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.step-content { flex: 1; font-size: 13px; }
+.step-content strong { display: block; margin-bottom: 2px; font-size: 14px; }
+
+ul { padding-left: 18px; margin: 6px 0; }
+li { margin: 3px 0; font-size: 14px; }
+blockquote {
+  border-left: 4px solid var(--accent);
+  padding: 10px 16px;
+  margin: 10px 0;
+  background: rgba(0,113,227,.03);
+  border-radius: 0 8px 8px 0;
+  font-size: 14px;
+  color: var(--text2);
+}
+hr { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
+
 /* Responsive */
 @media (max-width: 768px) {
   .hamburger { display: flex; }
   .sidebar { transform: translateX(-100%); }
   .sidebar.open { transform: translateX(0); }
   .sidebar-overlay.show { display: block; }
-  .main { margin-left: 0; padding: 60px 16px 20px; }
+  .main { margin-left: 0; padding: 52px 14px 20px; }
   .comparison { grid-template-columns: 1fr; }
-  .tips-grid { grid-template-columns: 1fr; }
+  .feature-grid { grid-template-columns: 1fr 1fr; }
 }
 
-/* Raw passage */
-.raw-passage {
-  background: rgba(255,195,0,.06);
-  border-left: 4px solid var(--orange);
-  padding: 14px 18px;
-  border-radius: 0 8px 8px 0;
-  margin: 12px 0;
-  font-size: 14px;
-  color: var(--text2);
-}
-.raw-passage strong { color: var(--text); }
-
-blockquote {
-  border-left: 4px solid var(--accent);
-  padding: 10px 16px;
-  margin: 12px 0;
-  background: rgba(0,113,227,.04);
-  border-radius: 0 8px 8px 0;
-  font-size: 14px;
-  color: var(--text2);
+/* Print */
+@media print {
+  .sidebar, .sidebar-overlay, .hamburger, .night-toggle { display: none !important; }
+  .main { margin-left: 0 !important; padding: 20px !important; }
+  .section { display: block !important; page-break-after: always; }
 }
 
-ul { padding-left: 20px; margin: 8px 0; }
-li { margin: 4px 0; }
-
-.star-icon { color: var(--orange); }
+/* Scrollbar */
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 2px; }
 </style>
 </head>
 <body>
 
-<button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+<button class="hamburger" id="hamburger">☰</button>
 <div class="sidebar-overlay" id="overlay"></div>
 
 <nav class="sidebar" id="sidebar">
-  <h2>IIQE 卷一 学习</h2>
+  <h2>📘 IIQE 卷一 · 精学通关</h2>
   <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
   <div class="progress-text" id="progressText">0% 完成</div>
-  <a href="#" data-section="tips" class="active">答题技巧</a>
+  <a href="#" data-section="home" class="active">🏠 首页</a>
+  <a href="#" data-section="tips">🎯 答题技巧</a>
   <a href="#" data-section="ch1">第1章 风险及保险 <span class="ch-weight ch-w-1">12%</span></a>
   <a href="#" data-section="ch2">第2章 法律原则 <span class="ch-weight ch-w-2">16%</span></a>
-  <a href="#" data-section="ch3">第3章 保险原则 <span class="ch-weight ch-w-3">30% ⭐</span></a>
-  <a href="#" data-section="ch4">第4章 公司功能 <span class="ch-weight ch-w-4">9%</span></a>
-  <a href="#" data-section="ch5">第5章 业务种类 <span class="ch-weight ch-w-5">5%</span></a>
-  <a href="#" data-section="ch6">第6章 规管架构 <span class="ch-weight ch-w-6">21%</span></a>
+  <a href="#" data-section="ch3">第3章 保险原则 <span class="ch-weight ch-w-3">30%</span></a>
+  <a href="#" data-section="ch4">第4章 保险公司功能 <span class="ch-weight ch-w-4">9%</span></a>
+  <a href="#" data-section="ch5">第5章 保险业务种类 <span class="ch-weight ch-w-5">5%</span></a>
+  <a href="#" data-section="ch6">第6章 保险业规管架构 <span class="ch-weight ch-w-6">21%</span></a>
   <a href="#" data-section="ch7">第7章 职业道德 <span class="ch-weight ch-w-7">7%</span></a>
-  <a href="#" data-section="terms">术语速查</a>
-  <a href="#" data-section="quiz">自我测验</a>
+  <a href="#" data-section="glossary">📖 术语速查</a>
+  <a href="#" data-section="flashcards">🃏 知识卡片</a>
+  <a href="#" data-section="quiz-all">📝 综合测验</a>
 </nav>
 
 <div class="main" id="main">
 
-<!-- ==================== 答题技巧 ==================== -->
-<div class="section active" id="sec-tips">
-  <span class="tag tag-important">考试基本信息</span>
+<!-- ==================== HOME ==================== -->
+<div class="section active" id="sec-home">
+  <span class="tag tag-important">IIQE 试卷一</span>
+  <h1>保险原理及实务 · 精学通关</h1>
   <div class="card">
-    <table>
-      <tr><th style="width:40%">项目</th><th>说明</th></tr>
-      <tr><td>考试名称</td><td>保险中介人资格考试 (IIQE) 试卷一</td></tr>
-      <tr><td>题型</td><td>75 道选择题（中英对照）</td></tr>
-      <tr><td>语言</td><td>同一屏同时显示繁体中文 + 英文</td></tr>
-      <tr><td>建议温习时间</td><td>约 20 小时</td></tr>
-    </table>
+    <p style="font-size:15px;">欢迎来到 IIQE 试卷一交互学习站。这里把官方教材的每一个知识点都用<strong>大白话讲清楚</strong>，配上对比表、案例讲解和练习，帮你高效备考。</p>
+    <div class="tag-list">
+      <span class="tag tag-info">75 道选择题</span>
+      <span class="tag tag-star">中英对照</span>
+      <span class="tag tag-green">建议 20 小时</span>
+      <span class="tag tag-purple">电脑/笔试</span>
+    </div>
   </div>
 
-  <span class="tag tag-star">章节比重</span>
+  <h2>📊 章节比重分布</h2>
   <div class="card" id="weightChart">
     <div class="weight-bar-wrap" data-target="ch3">
       <div class="weight-bar-label">第3章 保险原则</div>
@@ -477,7 +580,7 @@ li { margin: 4px 0; }
     <div class="weight-bar-wrap" data-target="ch1">
       <div class="weight-bar-label">第1章 风险及保险</div>
       <div class="weight-bar-track">
-        <div class="weight-bar-fill" style="width:12%;background:var(--teal);">12%</div>
+        <div class="weight-bar-fill" style="width:12%;background:var(--teal);color:#000;">12%</div>
       </div>
       <div class="weight-pct">9题</div>
     </div>
@@ -491,7 +594,7 @@ li { margin: 4px 0; }
     <div class="weight-bar-wrap" data-target="ch7">
       <div class="weight-bar-label">第7章 职业道德</div>
       <div class="weight-bar-track">
-        <div class="weight-bar-fill" style="width:7%;background:var(--red);">7%</div>
+        <div class="weight-bar-fill" style="width:7%;background:var(--pink);">7%</div>
       </div>
       <div class="weight-pct">5题</div>
     </div>
@@ -502,733 +605,1408 @@ li { margin: 4px 0; }
       </div>
       <div class="weight-pct">4题</div>
     </div>
-    <p style="font-size:13px;color:var(--text2);margin-top:8px;">点击条状图跳转到对应章节 · 第3+6章占一半以上</p>
   </div>
 
-  <span class="tag tag-info">答题技巧 10 项</span>
-  <div class="tips-grid">
-    <div class="tip-card"><span class="num">1</span><h4>文字推理</h4><p>不是直问直答的题，需要推理分析，不要被绕进去</p></div>
-    <div class="tip-card"><span class="num">2</span><h4>做记号</h4><p>在题目上划关键词，简化啰嗦的句子</p></div>
-    <div class="tip-card"><span class="num">3</span><h4>肯定/否定</h4><p>看清问的是"哪个对"还是"哪个错"，注意双重否定</p></div>
-    <div class="tip-card"><span class="num">4</span><h4>中英对照</h4><p>中文看不懂就看英文，英文看不懂就看中文</p></div>
-    <div class="tip-card"><span class="num">5</span><h4>排除法</h4><p>选项是 i,ii,iii,iv 组合时，先确认一个再排除</p></div>
-    <div class="tip-card"><span class="num">6</span><h4>消去法</h4><p>先排除明显错的选项，逐步缩小范围</p></div>
-    <div class="tip-card"><span class="num">7</span><h4>比较答案</h4><p>感觉多个都对？选最全面的（如"以上所有各项"）</p></div>
-    <div class="tip-card"><span class="num">8</span><h4>不会的先选D</h4><p>统计上D出现最多，圈上题号回头再检查</p></div>
-    <div class="tip-card"><span class="num">9</span><h4>以上所有各项</h4><p>完全没头绪时，有"以上所有各项"就选它</p></div>
-    <div class="tip-card"><span class="num">10</span><h4>相信直觉</h4><p>反复思考还不确定，就信第一眼选的</p></div>
+  <h2>📖 怎么学</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="icon">📚</div>
+      <h4>精读知识点</h4>
+      <p>每章拆碎，大白话讲解 + 对照表 + 案例</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🃏</div>
+      <h4>知识卡片</h4>
+      <p>点击翻转，自测记忆效果</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📝</div>
+      <h4>交互测验</h4>
+      <p>每题有解释，做完看成绩</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📖</div>
+      <h4>术语速查</h4>
+      <p>所有重点术语一键展开</p>
+    </div>
+  </div>
+
+  <h2>📋 考试规则速览</h2>
+  <div class="card">
+    <table>
+      <tr><th style="width:35%">项目</th><th>要点</th></tr>
+      <tr><td>入场时间</td><td>至少提前 15 分钟到场</td></tr>
+      <tr><td>迟到</td><td>开考 15 分钟后不得进场，费用不退</td></tr>
+      <tr><td>证件</td><td>有效香港身份证或护照正本 + 准考证</td></tr>
+      <tr><td>离场</td><td>开考 30 分钟后可离场（笔试最后 15 分钟不得离场）</td></tr>
+      <tr><td>电子设备</td><td>手机、智能手表等全部关机</td></tr>
+      <tr><td>作弊后果</td><td>取消资格最长 3 年 + 报警处理</td></tr>
+    </table>
   </div>
 </div>
 
-<!-- ==================== 第1章 ==================== -->
+<!-- ==================== TIPS ==================== -->
+<div class="section" id="sec-tips">
+  <span class="tag tag-star">🎯 答题技巧</span>
+  <h1>十项答题小贴士</h1>
+
+  <div class="feature-grid">
+    <div class="feature-card"><div class="icon">1️⃣</div><h4>文字推理</h4><p>不是直问直答，需推敲</p></div>
+    <div class="feature-card"><div class="icon">2️⃣</div><h4>做记号</h4><p>删废话、划重点</p></div>
+    <div class="feature-card"><div class="icon">3️⃣</div><h4>肯定/否定</h4><p>小心双重否定</p></div>
+    <div class="feature-card"><div class="icon">4️⃣</div><h4>中英对照</h4><p>哪边好懂看哪边</p></div>
+    <div class="feature-card"><div class="icon">5️⃣</div><h4>答案组合</h4><p>分析选项推断答案</p></div>
+    <div class="feature-card"><div class="icon">6️⃣</div><h4>消去法</h4><p>先排除明显错误</p></div>
+    <div class="feature-card"><div class="icon">7️⃣</div><h4>比较答案</h4><p>选最贴切而非最对</p></div>
+    <div class="feature-card"><div class="icon">8️⃣</div><h4>先选D跳过</h4><p>统计上 D 最多</p></div>
+    <div class="feature-card"><div class="icon">9️⃣</div><h4>选"以上皆对"</h4><p>没头绪时命中高</p></div>
+    <div class="feature-card"><div class="icon">🔟</div><h4>相信直觉</h4><p>反复不确定就第一印象</p></div>
+  </div>
+
+  <h2>💡 实战答题步骤</h2>
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-num">A</div>
+      <div class="step-content"><strong>剔出肯定错的选项</strong>把明显不对的选项划掉，然后排除包含该选项的答案组合。</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">B</div>
+      <div class="step-content"><strong>标出肯定对的选项</strong>把确定正确的标出来，排除没包含该选项的组合。</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">C</div>
+      <div class="step-content"><strong>选最贴切的</strong>有时多于一个看起来对，比较差别，选最贴合题意的。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== CH1 风险及保险 ==================== -->
 <div class="section" id="sec-ch1">
-  <h1>第1章 <span style="color:var(--text2);font-weight:400;font-size:20px;">风险及保险</span></h1>
-  <p style="color:var(--text2);margin-bottom:20px;">比重 12% · 约 9 题</p>
+  <span class="tag tag-info">第1章 · 12%</span>
+  <h1>风险及保险</h1>
 
-  <h2>1.1.1 风险的意义</h2>
-  <div class="card">
-    <p><strong>风险的定义：</strong>与潜在损失有关的不确定性</p>
-    <table>
-      <tr><th>标的内容</th><th>可保性</th></tr>
-      <tr><td>财务上</td><td>较为可保</td></tr>
-      <tr><td>身体上</td><td>较为可保</td></tr>
-      <tr><td>情绪上</td><td>较不可保</td></tr>
-    </table>
-    <p style="margin-top:8px;">搞得定、算得清的（钱和身体），保险公司愿意保；情绪这种虚无缥缈的，不保。</p>
+  <h2>1.1 风险的定义和分类</h2>
+
+  <h3>1.1.1 什么是「风险」？</h3>
+  <div class="card card-compact">
+    <p><strong>大白话：</strong>风险就是"<strong>未来可能发生的坏事，但不确定会不会发生、损失多大</strong>"。比如你开车出门，可能撞车可能不撞——这就是风险。</p>
   </div>
 
-  <h2>1.1.2 风险的类别</h2>
-  <div class="card">
-    <h4>A. 按财务后果分</h4>
-    <table>
-      <tr><th>类型</th><th>含义</th><th>例子</th><th>可保？</th></tr>
-      <tr><td>纯粹风险</td><td>只有可能亏，不可能赚</td><td>火灾、车祸、生病</td><td>可保</td></tr>
-      <tr><td>投机风险</td><td>可能赚也可能亏</td><td>炒股、创业、赌博</td><td>不可保</td></tr>
-    </table>
-    <p><strong>口诀：</strong>纯风险 = 只亏不赚（可保）；投机风险 = 有赚有亏（不保）</p>
+  <div class="plain-box">
+    <strong>官方定义：</strong>风险 = 与潜在损失有关的不确定性。<br>
+    <strong>说白了：</strong>三个关键词——①有损失的可能性 ②不知道会不会发生 ③不知道损失多大。
   </div>
 
+  <h3>按后果分：纯粹风险 vs 投机风险</h3>
+  <div class="comparison">
+    <div class="comp-col comp-left">
+      <div class="comp-header">纯粹风险（较可保）</div>
+      <div class="comp-items">
+        <strong>只有损失的可能，没有收益</strong>
+        比如：火灾、意外、生病<br>
+        <strong>保险公司愿意保</strong>
+      </div>
+    </div>
+    <div class="comp-col comp-right">
+      <div class="comp-header">投机风险（较不可保）</div>
+      <div class="comp-items">
+        <strong>可能赚也可能亏</strong>
+        比如：炒股、开公司、赌博<br>
+        <strong>保险公司一般不保</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-box">
+    <strong>案例：</strong>张三开了家奶茶店。<br>
+    A. 奶茶店发生火灾——只有损失，属于<strong>纯粹风险</strong>，可以买火险。<br>
+    B. 奶茶店生意不好亏本——也可能赚钱，属于<strong>投机风险</strong>，保险公司不管你生意好不好。
+  </div>
+
+  <h3>按范围分：特定风险 vs 基本风险</h3>
+  <div class="comparison">
+    <div class="comp-col comp-left">
+      <div class="comp-header">特定风险（较可保）</div>
+      <div class="comp-items">
+        <strong>只影响少数人或个体</strong><br>
+        例：汽车意外、个人受伤<br>
+        商业保险主要保这类
+      </div>
+    </div>
+    <div class="comp-col comp-right">
+      <div class="comp-header">基本风险（较不可保）</div>
+      <div class="comp-items">
+        <strong>影响一大片人，个人无法控制</strong><br>
+        例：战争、饥荒、恐怖袭击、大地震<br>
+        一般商业保险不保
+      </div>
+    </div>
+  </div>
+
+  <h2>1.2 风险管理</h2>
+  <div class="card card-compact">
+    <p><strong>大白话：</strong>风险管理就是"<strong>提前想好怎么对付风险</strong>"——先找出风险，再衡量有多大，最后决定怎么办。</p>
+  </div>
+
+  <h3>风险管理三步走</h3>
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>识别风险</strong>——找出有哪些风险（比如：开奶茶店可能火灾、可能被盗）</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>量化风险</strong>——评估发生的概率和造成的损失有多大</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>应对/处理风险</strong>——选择以下 5 种方式之一</div>
+    </div>
+  </div>
+
+  <h3>应对风险的 5 种措施</h3>
   <div class="card">
-    <h4>B. 按影响范围分</h4>
     <table>
-      <tr><th>类型</th><th>含义</th><th>例子</th><th>可保？</th></tr>
-      <tr><td>特定风险</td><td>影响一小部分人或个体</td><td>车祸、个人受伤</td><td>可保</td></tr>
-      <tr><td>基本风险</td><td>影响一大片人或全社会</td><td>饥荒、战争、恐袭</td><td>不可保</td></tr>
+      <tr><th>措施</th><th>大白话</th><th>例子</th></tr>
+      <tr><td>① 风险避免</td><td>干脆不干这个事</td><td>不坐飞机就避免了空难风险</td></tr>
+      <tr><td>② 损失防范</td><td>减少发生的概率</td><td>装防盗门减少被盗风险</td></tr>
+      <tr><td>③ 损失降低</td><td>发生了也减轻损失</td><td>装喷淋系统，火灾时自动灭火</td></tr>
+      <tr><td>④ 风险转移</td><td>把风险转给别人</td><td><strong>买保险</strong>——把赔钱风险转给保险公司</td></tr>
+      <tr><td>⑤ 风险融资</td><td>自己留钱准备赔</td><td>公司自己计提准备金</td></tr>
     </table>
   </div>
 
-  <h2>1.1.3 风险管理</h2>
-  <div class="card">
-    <table>
-      <tr><th>措施</th><th>解释</th><th>例子</th></tr>
-      <tr><td>风险避免</td><td>直接躲开风险</td><td>不炒股就没亏钱风险</td></tr>
-      <tr><td>损失防范</td><td>降低发生的概率</td><td>装防盗门减少被偷可能</td></tr>
-      <tr><td>损失降低</td><td>发生了也要减少损失</td><td>装灭火器，着火时少烧点</td></tr>
-      <tr><td>风险转移</td><td>把风险甩给别人</td><td>买保险就是最典型的转移</td></tr>
-      <tr><td>风险融资</td><td>准备好赔钱的钱</td><td>自留风险，自己存钱备用</td></tr>
-    </table>
-    <p><strong>注意：</strong>保险只是风险管理工具中的一种，不是全部。</p>
+  <div class="plain-box">
+    <strong>重点记住：</strong>保险只是风险管理工具中的<strong>一种</strong>（属于"风险转移"）。不是所有风险都需要买保险。
   </div>
 
-  <h2>1.2 保险的功能及好处</h2>
-  <div class="card">
-    <table>
-      <tr><th>分类</th><th>说明</th></tr>
-      <tr><td>基本功能（核心）</td><td>风险转移机制：交保费 → 保险公司扛风险 → 出事赔钱</td></tr>
-      <tr><td>辅助 1</td><td>就业：保险行业创造大量工作</td></tr>
-      <tr><td>辅助 2</td><td>金融服务：保险公司是金融市场大玩家</td></tr>
-      <tr><td>辅助 3</td><td>损失防范和损失降低：帮客户减少损失</td></tr>
-      <tr><td>辅助 4</td><td>储蓄/投资：某些产品也有存钱/投资功能</td></tr>
-      <tr><td>辅助 5</td><td>经济增长/发展：让企业敢于投资创业</td></tr>
-    </table>
-    <p><strong>口诀：</strong>基本是"转移"，辅助是"就业+金融+防损+储蓄+经济"</p>
+  <h2>1.3 保险的功能和好处</h2>
+
+  <div class="comparison">
+    <div class="comp-col comp-left">
+      <div class="comp-header">基本功能（唯一）</div>
+      <div class="comp-items">
+        <strong>风险转移</strong><br>
+        交保费，把个人潜在财务损失转移给保险公司
+      </div>
+    </div>
+    <div class="comp-col comp-right">
+      <div class="comp-header">辅助功能（为社会做贡献）</div>
+      <div class="comp-items">
+        ① 就业（保险业提供大量工作）<br>
+        ② 金融服务<br>
+        ③ 损失防范和降低<br>
+        ④ 储蓄/投资<br>
+        ⑤ 经济增长/发展
+      </div>
+    </div>
   </div>
 
-  <div class="checklist" data-chapter="ch1">
-    <p style="font-weight:600;margin-bottom:6px;">检查清单</p>
-    <label><input type="checkbox"> 理解风险的定义（与潜在损失有关的不确定性）</label>
-    <label><input type="checkbox"> 区分纯粹风险 vs 投机风险、特定风险 vs 基本风险</label>
-    <label><input type="checkbox"> 记住风险管理的五种措施</label>
-    <label><input type="checkbox"> 保险是风险转移工具（不是全部风险管理）</label>
+  <div class="case-box">
+    <strong>案例：</strong>李四买了车险，出了事故保险公司赔钱。<br>
+    <strong>基本功能体现：</strong>李四每年交几千保费，把"可能赔几十万"的风险转给了保险公司。<br>
+    <strong>辅助功能体现：</strong>保险公司雇佣了查勘员（就业）、收的保费投资到基建项目（经济增长）。
+  </div>
+
+  <div class="quiz-question" data-answer="d">
+    <h4>1. 风险代表的潜在损失可能包括：</h4>
+    <div class="quiz-meta">章节 1.1.1</div>
+    <label class="quiz-option"><input type="radio" name="q1_1" value="a"> A. 只在财务上的后果</label>
+    <label class="quiz-option"><input type="radio" name="q1_1" value="b"> B. 只在身体上的后果</label>
+    <label class="quiz-option"><input type="radio" name="q1_1" value="c"> C. 只在情绪上的后果</label>
+    <label class="quiz-option"><input type="radio" name="q1_1" value="d"> D. 财务/身体/情绪上的后果都可能</label>
+    <div class="quiz-feedback">风险带来的潜在损失可以是财务上的（金钱损失）、身体上的（死亡或受伤），也可以是情绪上的（难过悲伤）。所以选 D。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="d">
+    <h4>2. 从可保程度来看，以下哪项属于特定风险？</h4>
+    <div class="quiz-meta">章节 1.1.2b</div>
+    <label class="quiz-option"><input type="radio" name="q1_2" value="a"> A. 必然可保的</label>
+    <label class="quiz-option"><input type="radio" name="q1_2" value="b"> B. 永不可保的</label>
+    <label class="quiz-option"><input type="radio" name="q1_2" value="c"> C. 可保程度较基本风险低</label>
+    <label class="quiz-option"><input type="radio" name="q1_2" value="d"> D. 可保程度较基本风险高</label>
+    <div class="quiz-feedback">特定风险影响范围小（如汽车意外、个人损伤），商业保险主要保这类，所以可保程度比基本风险高。选 D。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="c">
+    <h4>3. 以下哪些属于"投机"风险？</h4>
+    <div class="quiz-meta">i. 杜琼斯指数波动  ii. 新款汽车生产  iii. 赌场火灾  iv. 赛马结果</div>
+    <label class="quiz-option"><input type="radio" name="q1_3" value="a"> A. i,ii,iii</label>
+    <label class="quiz-option"><input type="radio" name="q1_3" value="b"> B. i,ii,iv</label>
+    <label class="quiz-option"><input type="radio" name="q1_3" value="c"> C. i,ii,iv</label>
+    <label class="quiz-option"><input type="radio" name="q1_3" value="d"> D. ii,iii,iv</label>
+    <div class="quiz-feedback">指数波动可能涨可能跌（投机），新产品可能成功可能失败（投机），赛马结果可能赢可能输（投机）。赌场火灾只有损失（纯粹风险）。选 C。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="c">
+    <h4>4. 保险人考虑改善受保风险之潜在损失的可能性时，用的术语是？</h4>
+    <div class="quiz-meta">章节 1.1.3b</div>
+    <label class="quiz-option"><input type="radio" name="q1_4" value="a"> A. 核保</label>
+    <label class="quiz-option"><input type="radio" name="q1_4" value="b"> B. 风险评估</label>
+    <label class="quiz-option"><input type="radio" name="q1_4" value="c"> C. 风险管理</label>
+    <label class="quiz-option"><input type="radio" name="q1_4" value="d"> D. 保险风险分析</label>
+    <div class="quiz-feedback">当保险人说到"改善潜在损失的可能性"时，指的是风险管理——即降低或改善风险的方法或手段。选 C。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="b">
+    <h4>5. 保险的基本功能是指：</h4>
+    <div class="quiz-meta">章节 1.2</div>
+    <label class="quiz-option"><input type="radio" name="q1_5" value="a"> A. 提供储蓄途径</label>
+    <label class="quiz-option"><input type="radio" name="q1_5" value="b"> B. 风险转移机制</label>
+    <label class="quiz-option"><input type="radio" name="q1_5" value="c"> C. 增加就业机会</label>
+    <label class="quiz-option"><input type="radio" name="q1_5" value="d"> D. 以上皆是</label>
+    <div class="quiz-feedback">保险的基本功能只有一个：风险转移（缴保费把损失转给保险公司）。储蓄和就业属于辅助功能。选 B。</div>
   </div>
 </div>
 
-<!-- ==================== 第2章 ==================== -->
+<!-- ==================== CH2 法律原则 ==================== -->
 <div class="section" id="sec-ch2">
-  <h1>第2章 <span style="color:var(--text2);font-weight:400;font-size:20px;">法律原则</span></h1>
-  <p style="color:var(--text2);margin-bottom:20px;">比重 16% · 约 12 题</p>
+  <span class="tag tag-info">第2章 · 16%</span>
+  <h1>法律原则</h1>
 
-  <h2>2.1 合约的基本知识</h2>
-  <div class="card">
-    <h4>合约的 6 个要素（必须全部满足）</h4>
-    <table>
-      <tr><th>要素</th><th>白话解释</th><th>通俗说法</th></tr>
-      <tr><td>要约</td><td>一方提出"我要跟你签合同"</td><td>出价/提方案</td></tr>
-      <tr><td>承约</td><td>另一方说"我同意"</td><td>接受方案</td></tr>
-      <tr><td>代价</td><td>双方都要给点东西（钱/服务/承诺）</td><td>等价交换</td></tr>
-      <tr><td>订约的行为能力</td><td>双方必须是成年人、精神正常</td><td>不是小孩/精神病</td></tr>
-      <tr><td>合法性</td><td>合同内容不能违法</td><td>不能签杀人合同</td></tr>
-      <tr><td>订立法律关系的意向</td><td>双方真想签有法律约束的合同</td><td>不是开玩笑</td></tr>
-    </table>
-    <p><strong>考点：</strong>少任何一个 → 合同就是"有缺陷的合约"</p>
+  <h2>2.1 合约法基础</h2>
+
+  <h3>什么是「合约」？</h3>
+  <div class="plain-box">
+    <strong>官方定义：</strong>合约是法律上可强制执行的、由承诺或承担所组成的协议。<br>
+    <strong>大白话：</strong>合约就是"你说好的事，法律逼你做到"。合约本身是<strong>无形的</strong>——不是那张纸，而是纸上的约定。
   </div>
 
-  <div class="card">
-    <h4>三种缺陷合同</h4>
-    <table>
-      <tr><th>类型</th><th>含义</th></tr>
-      <tr><td>无效的合约</td><td>法律上等于不存在，从头到尾没效力</td></tr>
-      <tr><td>可使无效的合约</td><td>被坑的一方可以选择让合同无效（在合理时间内）</td></tr>
-      <tr><td>不能强制执行的合约</td><td>合同有效，但法院不帮你强制执行</td></tr>
-    </table>
+  <h3>合约的种类</h3>
+  <div class="comparison">
+    <div class="comp-col comp-left">
+      <div class="comp-header">简单合约（大部分保险合约）</div>
+      <div class="comp-items">
+        ① 口头合约<br>
+        ② 不经盖章的书面合约<br>
+        ③ 从行为推断出来<br>
+        ✅ 绝大多数保险合约属于此类
+      </div>
+    </div>
+    <div class="comp-col comp-right">
+      <div class="comp-header">契据（形式要求严格）</div>
+      <div class="comp-items">
+        需要 3 个条件：<br>
+        ① 签署<br>
+        ② 盖章<br>
+        ③ 交付书面文书<br>
+        例：土地转让、担保
+      </div>
+    </div>
   </div>
 
-  <h2>2.2 代理法（保险中介的核心法律依据）</h2>
+  <h3>合约的 6 大要素</h3>
   <div class="card">
-    <h4>2.2.1 什么是代理关系？</h4>
-    <p>委托人（老板）找个代理人（员工/中介）替自己办事。<br>代理人做的事 = 委托人自己做的事。<br>代理人搞出的事，委托人要负责（<strong>转承责任</strong>）。</p>
-    <p><strong>通俗理解：</strong>保险公司 = 委托人，保险代理人/经纪 = 代理人。代理人在卖保险时说错话、做错事，保险公司也得负责。</p>
-  </div>
-
-  <div class="card">
-    <h4>2.2.2 代理关系如何产生？</h4>
     <table>
-      <tr><th>方式</th><th>说明</th></tr>
-      <tr><td>通过协议（明示）</td><td>口头或书面明确说"你当我代理"</td></tr>
-      <tr><td>通过协议（隐含）</td><td>从行为能看出是代理关系</td></tr>
-      <tr><td>追认</td><td>事先没授权，但事后老板说"我同意"</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <h4>2.2.3 代理人的权限（四种）</h4>
-    <table>
-      <tr><th>权限</th><th>说明</th></tr>
-      <tr><td>实际权限（明示+隐含）</td><td>老板确实给了的权利（明确说的+业务上必须有的）</td></tr>
-      <tr><td>表面权限</td><td>老板让第三方觉得代理人有权，实际可能没给那么多</td></tr>
-      <tr><td>必要权限</td><td>紧急情况下，来不及请示，代理人为了救场自作主张</td></tr>
-      <tr><td>不容反悔的代理权</td><td>老板之前默许了，后来不能翻脸不认账</td></tr>
+      <tr><th>要素</th><th>大白话</th></tr>
+      <tr><td>① 要约</td><td>一方提条件："我出这个价，你接受吗？"</td></tr>
+      <tr><td>② 承约</td><td>另一方说"行"——必须和要约内容完全一致</td></tr>
+      <tr><td>③ 代价</td><td>双方都得付出点啥（你交保费，保险公司承保）</td></tr>
+      <tr><td>④ 订约行为能力</td><td>不是谁都可以签约（小孩、精神病人不行）</td></tr>
+      <tr><td>⑤ 合法性</td><td>不能做违法的事（签合同去抢劫？无效）</td></tr>
+      <tr><td>⑥ 订立法律关系的意向</td><td>双方明确想受法律约束</td></tr>
     </table>
   </div>
 
+  <h3>有缺陷的合约</h3>
   <div class="card">
-    <h4>2.2.4 代理人对委托人的责任</h4>
-    <p>遵从（听老板合法指令）、亲自执行、应有的谨慎及技巧、忠心与诚信、报账</p>
+    <table>
+      <tr><th>类型</th><th>大白话</th></tr>
+      <tr><td>无效的</td><td>从头到尾没有法律效力，就像没签过</td></tr>
+      <tr><td>可使无效的</td><td>有效，但吃亏的一方可以选择让它无效（需在合理时间内行动）</td></tr>
+      <tr><td>不能强制执行的</td><td>完成某些条件后才能执行</td></tr>
+    </table>
   </div>
 
-  <div class="card">
-    <h4>2.2.5 委托人对代理人的责任</h4>
-    <p>报酬（佣金）、支出（报销）、违反责任时可向委托人采取行动</p>
+  <h2>2.2 代理法</h2>
+  <div class="plain-box">
+    <strong>核心原则：</strong>"<strong>透过他人行事与自己亲自执行并无分别</strong>"——你委托代理人做的事，法律上视同你自己做的，你要负责。
   </div>
 
+  <h3>代理人的权限类型</h3>
   <div class="card">
-    <h4>2.2.6 终止代理关系</h4>
-    <p>双方同意、撤销协议、违反合约、死亡、精神错乱、非法协议、时限（到期）</p>
+    <table>
+      <tr><th>权限类型</th><th>大白话</th></tr>
+      <tr><td>明示实际权限</td><td>委托人明确说"你可以干这些事"</td></tr>
+      <tr><td>隐含实际权限</td><td>虽然没有明说，但做这事是合理必要的</td></tr>
+      <tr><td>表面权限</td><td>委托人让第三方以为代理人有权，实际上可能没授权</td></tr>
+      <tr><td>必要权限</td><td>紧急情况、来不及请示时，代理人可以自作主张</td></tr>
+      <tr><td>不容反悔的代理权</td><td>委托人啥都没说但没阻止，事后不能翻脸不认</td></tr>
+    </table>
   </div>
 
-  <div class="checklist" data-chapter="ch2">
-    <p style="font-weight:600;margin-bottom:6px;">检查清单</p>
-    <label><input type="checkbox"> 记住合约的 6 个要素</label>
-    <label><input type="checkbox"> 区分三种缺陷合同</label>
-    <label><input type="checkbox"> 理解代理关系中的转承责任</label>
-    <label><input type="checkbox"> 记住四种代理权限</label>
-    <label><input type="checkbox"> 代理人 vs 委托人的责任</label>
+  <h3>代理人的责任</h3>
+  <div class="comparison">
+    <div class="comp-col comp-left">
+      <div class="comp-header">代理人对委托人</div>
+      <div class="comp-items">
+        ① 遵从指示<br>
+        ② 亲自执行（不能随便转给别人）<br>
+        ③ 应有的谨慎和技巧<br>
+        ④ 忠心与诚信<br>
+        ⑤ 报账
+      </div>
+    </div>
+    <div class="comp-col comp-right">
+      <div class="comp-header">委托人对代理人</div>
+      <div class="comp-items">
+        ① 支付报酬（佣金）<br>
+        ② 报销支出<br>
+        ③ 违反责任时，代理人可起诉委托人
+      </div>
+    </div>
+  </div>
+
+  <h3>代理关系终止方式</h3>
+  <div class="card">
+    <div class="tag-list">
+      <span class="tag tag-info">双方同意</span>
+      <span class="tag tag-info">撤销协议</span>
+      <span class="tag tag-star">违反合约</span>
+      <span class="tag tag-info">死亡</span>
+      <span class="tag tag-info">精神错乱</span>
+      <span class="tag tag-star">非法协议</span>
+      <span class="tag tag-info">时限</span>
+    </div>
+  </div>
+
+  <div class="quiz-question" data-answer="c">
+    <h4>1. 以下哪项是保险单的正确描述？</h4>
+    <label class="quiz-option"><input type="radio" name="q2_1" value="a"> A. 是一份经盖章发出的重要文件</label>
+    <label class="quiz-option"><input type="radio" name="q2_1" value="b"> B. 是保险代理人及被保险人之间的一份合约</label>
+    <label class="quiz-option"><input type="radio" name="q2_1" value="c"> C. 是一份证明保险合约的凭证</label>
+    <label class="quiz-option"><input type="radio" name="q2_1" value="d"> D. 保单损毁，保险合约便无效</label>
+    <div class="quiz-feedback">保险单不是合约本身，而是证明合约的凭证。保单烧了可以补领，合约仍然有效。选 C。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="a">
+    <h4>2. 关于以契据形式订立的合约，以下哪项正确？</h4>
+    <label class="quiz-option"><input type="radio" name="q2_2" value="a"> A. 它们经盖章后发出</label>
+    <label class="quiz-option"><input type="radio" name="q2_2" value="b"> B. 它们大多以书面方式表达</label>
+    <label class="quiz-option"><input type="radio" name="q2_2" value="c"> C. 它们是简单合约的一种</label>
+    <label class="quiz-option"><input type="radio" name="q2_2" value="d"> D. 以上一切评论都正确</label>
+    <div class="quiz-feedback">契据必须签署+盖章+交付书面文书。不说"大多"而是"必须"书面的。契据和简单合约是两类不同合约。选 A。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="d">
+    <h4>3. 以下哪项不是构成有效合约需要的？</h4>
+    <label class="quiz-option"><input type="radio" name="q2_3" value="a"> A. 要约</label>
+    <label class="quiz-option"><input type="radio" name="q2_3" value="b"> B. 承约</label>
+    <label class="quiz-option"><input type="radio" name="q2_3" value="c"> C. 订立法律关系的意向</label>
+    <label class="quiz-option"><input type="radio" name="q2_3" value="d"> D. 订约双方同意价格</label>
+    <div class="quiz-feedback">合约六大要素中有"代价"而不是"双方同意价格"。比如赠与没有价格但有代价（承诺）。同意价格不是独立要素。选 D。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="c">
+    <h4>4. 可使无效的合约，如果受屈一方未采取行动：</h4>
+    <label class="quiz-option"><input type="radio" name="q2_4" value="a"> A. 另一方便可向他采取法律行动</label>
+    <label class="quiz-option"><input type="radio" name="q2_4" value="b"> B. 合理时间后合约变为无效</label>
+    <label class="quiz-option"><input type="radio" name="q2_4" value="c"> C. 合理时间后合约不会变为无效</label>
+    <label class="quiz-option"><input type="radio" name="q2_4" value="d"> D. 支付的金钱须退还</label>
+    <div class="quiz-feedback">可使无效的合约是有效的，除非受屈方选择让它无效。如果没在合理时间行动，合约继续有效。选 C。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="c">
+    <h4>5. 人道或合理原因下，某人未获授权却为他人行事，成为代理人，属于哪种代理关系？</h4>
+    <label class="quiz-option"><input type="radio" name="q2_5" value="a"> A. 不容反悔</label>
+    <label class="quiz-option"><input type="radio" name="q2_5" value="b"> B. 明示权限</label>
+    <label class="quiz-option"><input type="radio" name="q2_5" value="c"> C. 必要代理</label>
+    <label class="quiz-option"><input type="radio" name="q2_5" value="d"> D. 表面权限</label>
+    <div class="quiz-feedback">紧急情况下来不及请示，为保护他人财产或权益而采取行动——这就是必要代理（必要代理人）。选 C。</div>
   </div>
 </div>
 
-<!-- ==================== 第3章 ==================== -->
+<!-- ==================== CH3 保险原则（最重要30%） ==================== -->
 <div class="section" id="sec-ch3">
-  <h1>第3章 <span style="color:var(--text2);font-weight:400;font-size:20px;">保险原则</span> <span class="star-icon">⭐</span></h1>
-  <p style="color:var(--text2);margin-bottom:20px;">比重 30% · 约 22 题 — 重点中的重点</p>
+  <span class="tag tag-star">第3章 · 30% ⭐ 最重要</span>
+  <h1>保险原则</h1>
+  <p style="margin-bottom:16px;">本章占考试<strong>30%（22题）</strong>，是绝对的重点。一共 6 大原则，每个都要吃透。</p>
 
-  <h2>3.1 可保权益 (Insurable Interest)</h2>
+  <h2>3.1 可保权益</h2>
+  <div class="plain-box">
+    <strong>大白话：</strong>可保权益就是"<strong>这件事出了事，真能让我赔到钱</strong>"。你给别人的车买保险？不行——你没损失。你给自己的车买？行——车坏了你受损失。<br>
+    <strong>官方定义：</strong>投保人与保险标的之间必须具有法律认可的关系。缺了这个，保险合约就无效。
+  </div>
+
+  <h3>可保权益的产生方式</h3>
   <div class="card">
-    <p>投保人跟保险标的之间必须有法律认可的关系。<br><strong>没有可保权益 → 保险协议无效。</strong></p>
-    <h4>什么时候需要可保权益？</h4>
     <table>
-      <tr><th>保险类型</th><th>时间点</th><th>白话理解</th></tr>
-      <tr><td>人寿保险</td><td>保单开始生效时</td><td>买的时候就须有，后面离婚了也没关系</td></tr>
-      <tr><td>水险/其他保险</td><td>损失发生时</td><td>出事的时候须有，买的时候可以没有</td></tr>
+      <tr><th>保险类型</th><th>举例</th></tr>
+      <tr><td>人身保险</td><td>自己的生命/肢体、配偶、未成年子女（<18岁）、监护人关系</td></tr>
+      <tr><td>财产保险</td><td>自己的房子、车子、货物</td></tr>
+      <tr><td>责任保险</td><td>怕撞了别人要赔钱</td></tr>
+      <tr><td>其他合法权利</td><td>债权人可以对债务人的生命有可保权益</td></tr>
     </table>
-    <p><strong>经典案例：</strong>某女给老公买寿险 → 后来离婚 → 老公死了 → 前妻还能拿赔偿金！因为买保险的时候她是有可保权益的（当时是夫妻）。</p>
+  </div>
+
+  <div class="case-box">
+    <strong>案例——什么时候需要可保权益？</strong><br>
+    <strong>人寿保险：</strong>只须在<strong>保单起保时</strong>存在。比如 A 给老公买了寿险，后来离婚了，老公死了。A 还能拿赔偿金——因为投保时有可保权益。<br>
+    <strong>水险/其他财产险：</strong>只须在<strong>损失发生时</strong>存在。比如你卖了车但保险还没转，车撞了——你已经没可保权益了，不赔。
+  </div>
+
+  <div class="quiz-question" data-answer="b">
+    <h4>1. 在香港人寿保险中，投保人对以下哪些人具有可保权益？</h4>
+    <div class="quiz-meta">i. 配偶  ii. 欠债人  iii. 债权人  iv. 年满15岁子女</div>
+    <label class="quiz-option"><input type="radio" name="q3_1" value="a"> A. i,iii,iv</label>
+    <label class="quiz-option"><input type="radio" name="q3_1" value="b"> B. i,iii,iv</label>
+    <label class="quiz-option"><input type="radio" name="q3_1" value="c"> C. i,ii,iv</label>
+    <label class="quiz-option"><input type="radio" name="q3_1" value="d"> D. i,ii,iv</label>
+    <div class="quiz-feedback">对自己的配偶（i√）、债权人可对债务人（欠债人）有可保权益（iii√），未满18岁的子女（iv√，15岁<18岁）。欠债人≠债权人。选 B。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="c">
+    <h4>2. 以下哪类保险在损失时才需要可保权益？</h4>
+    <div class="quiz-meta">i. 人寿保险  ii. 汽车保险  iii. 海上货物保险  iv. 人身意外保险</div>
+    <label class="quiz-option"><input type="radio" name="q3_2" value="a"> A. i,ii</label>
+    <label class="quiz-option"><input type="radio" name="q3_2" value="b"> B. i,iv</label>
+    <label class="quiz-option"><input type="radio" name="q3_2" value="c"> C. ii,iii</label>
+    <label class="quiz-option"><input type="radio" name="q3_2" value="d"> D. ii,iv</label>
+    <div class="quiz-feedback">人寿保险和人身意外保险只需要投保时有可保权益。汽车保险和海上货物保险属于弥偿保险，需要在损失时有可保权益。选 C。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="a">
+    <h4>3. 保单完全转给承让人，转让人合约权益也完全转移，属于哪类转让？</h4>
+    <label class="quiz-option"><input type="radio" name="q3_3" value="a"> A. 保险合约的转让</label>
+    <label class="quiz-option"><input type="radio" name="q3_3" value="b"> B. 收取保险金权利的转让</label>
+    <label class="quiz-option"><input type="radio" name="q3_3" value="c"> C. 可保权益的转让</label>
+    <label class="quiz-option"><input type="radio" name="q3_3" value="d"> D. 保单收益的转让</label>
+    <div class="quiz-feedback">保险合约转让——转让人在合约中的权益完全转移到承让人身上。另一种是"收取保险金权利转让"（保单还保转让人，但赔款给承让人）。选 A。</div>
+  </div>
+
+  <h2>3.2 最高诚信</h2>
+  <div class="plain-box">
+    <strong>大白话：</strong>普通商业合约要求"一般诚信"——老实点就行。但<strong>保险合约要求"最高诚信"</strong>——你要<strong>主动</strong>把知道的所有重要情况告诉保险公司，不能等对方来问。
   </div>
 
   <div class="card">
-    <h4>对人寿保险谁有可保权益？</h4>
+    <p><strong>重要事实</strong> = 会影响保险公司<strong>定保费</strong>或<strong>决定是否承保</strong>的任何情况。</p>
+    <p>比如：你有高血压但买医疗险时没说——这就是重要事实，不说就是违反最高诚信。</p>
+  </div>
+
+  <h3>违反最高诚信的 4 种形式</h3>
+  <div class="card">
+    <table>
+      <tr><th>类型</th><th>大白话</th></tr>
+      <tr><td>欺诈性失实陈述</td><td>故意说假话骗保险公司</td></tr>
+      <tr><td>非欺诈性失实陈述</td><td>不小心说了假话（无意或疏忽）</td></tr>
+      <tr><td>欺诈性不披露</td><td>故意隐瞒重要事实不说</td></tr>
+      <tr><td>非欺诈性不披露</td><td>不小心忘了说重要事实</td></tr>
+    </table>
+  </div>
+
+  <div class="case-box">
+    <strong>案例：</strong>老王买健康险，体检报告显示有早期肿瘤，但他没告诉保险公司。<br>
+    A. 如果老王<strong>知道</strong>这情况但故意不说 → <strong>欺诈性不披露</strong><br>
+    B. 如果老王<strong>忘了</strong>医生说这事 → <strong>非欺诈性不披露</strong><br>
+    不管哪种，保险公司都可以推翻合约。
+  </div>
+
+  <div class="quiz-question" data-answer="a">
+    <h4>4. 涉及蓄意保留重要事实，可被视为违反最高诚信的：</h4>
+    <label class="quiz-option"><input type="radio" name="q3_4" value="a"> A. 欺诈性不披露</label>
+    <label class="quiz-option"><input type="radio" name="q3_4" value="b"> B. 非欺诈性不披露</label>
+    <label class="quiz-option"><input type="radio" name="q3_4" value="c"> C. 无意的失实陈述</label>
+    <label class="quiz-option"><input type="radio" name="q3_4" value="d"> D. 欺诈性失实陈述</label>
+    <div class="quiz-feedback">"蓄意"=欺诈性的，"保留"=不披露。合起来就是"欺诈性不披露"。选 A。</div>
+  </div>
+
+  <h2>3.3 近因</h2>
+  <div class="plain-box">
+    <strong>大白话：</strong>一件事的发生可能有多个原因，保险公司只认<strong>最直接、最主要</strong>的那个原因——这就是"近因"（不是"最近"的意思，是"最主导"的意思）。<br>
+    <strong>官方定义：</strong>一项损失的有效或主导成因。
+  </div>
+
+  <div class="case-box">
+    <strong>案例：</strong>货仓起火（受保危险），消防员来救火，<strong>破门 + 喷水导致货物更严重的损害</strong>。这些"额外的损害"赔不赔？<br>
+    <strong>答：赔！</strong>因为近因仍然是<strong>火灾</strong>。消防员的破坏是不保危险，但源头是受保危险引起的，所以赔。
+  </div>
+
+  <div class="quiz-question" data-answer="c">
+    <h4>5. 消防员救火造成的额外损害，按近因规则：</h4>
+    <label class="quiz-option"><input type="radio" name="q3_5" value="a"> A. 只赔50%</label>
+    <label class="quiz-option"><input type="radio" name="q3_5" value="b"> B. 得不到保障</label>
+    <label class="quiz-option"><input type="radio" name="q3_5" value="c"> C. 由受保危险导致的不保危险，因此得到保障</label>
+    <label class="quiz-option"><input type="radio" name="q3_5" value="d"> D. 只有保单延伸保障才赔</label>
+    <div class="quiz-feedback">消防员的损害是不保危险，但源头是受保的火灾。近因原则下，受保危险引起的后续不保危险仍受保。选 C。</div>
+  </div>
+
+  <h2>3.4 弥偿</h2>
+  <div class="plain-box">
+    <strong>大白话：</strong>弥偿就是"<strong>赔不多、赔不少、刚刚好</strong>"。保险公司让你回到损失前的经济状态，不让你赚钱也不让你亏更多。<br>
+    <strong>官方定义：</strong>对损失作出不多也不少的精确财务补偿。
+  </div>
+
+  <h3>弥偿的提供方式</h3>
+  <div class="card">
+    <table>
+      <tr><th>方式</th><th>例子</th></tr>
+      <tr><td>现金支付</td><td>直接给钱</td></tr>
+      <tr><td>维修</td><td>把撞坏的车修好</td></tr>
+      <tr><td>更换</td><td>被偷的电视赔一台新的</td></tr>
+      <tr><td>恢复原状</td><td>把烧坏的房子重建</td></tr>
+    </table>
+  </div>
+
+  <h3>限制弥偿的条款</h3>
+  <div class="card">
+    <table>
+      <tr><th>条款</th><th>大白话</th></tr>
+      <tr><td>比例分摊</td><td>你的房子值400万但只保了100万（25%），损失100万的话只赔25万——<strong>惩罚不足额投保</strong></td></tr>
+      <tr><td>保单免赔额</td><td>每次修车你自付前4000元，剩下的保险公司出</td></tr>
+      <tr><td>保单起赔额</td><td>损失超过5%才赔，低于5%你自己扛（常见于水险）</td></tr>
+      <tr><td>保单限额</td><td>保额上限，超过的部分保险公司不负责</td></tr>
+    </table>
+  </div>
+
+  <div class="case-box">
+    <strong>案例——免赔额 vs 起赔额：</strong><br>
+    你的车保了综合险，免赔额4000元。<br>
+    • 修车3000元 → 低于免赔额，<strong>你全额自付</strong><br>
+    • 修车14000元 → 你付4000元，保险公司赔10000元<br><br>
+    如果换成起赔额5%（500万保额，起赔额25万）：<br>
+    • 损失10万 → <strong>低于起赔额，不赔</strong><br>
+    • 损失100万 → <strong>全额赔100万</strong>
+  </div>
+
+  <h3>超越弥偿的条款</h3>
+  <div class="card">
+    <table>
+      <tr><th>条款</th><th>说明</th></tr>
+      <tr><td>重置保险</td><td>旧的烧了赔新的，不扣折旧</td></tr>
+      <tr><td>"以新代旧"</td><td>常见于家居险、船体险</td></tr>
+      <tr><td>约定价值保单</td><td>艺术品/珠宝事先约定价值，出事就按这个价赔</td></tr>
+      <tr><td>水险保单</td><td>船体和海上货物按定值方式赔</td></tr>
+    </table>
+  </div>
+
+  <div class="quiz-question" data-answer="b">
+    <h4>6. 免赔额 vs 起赔额，超过 X 时：</h4>
+    <label class="quiz-option"><input type="radio" name="q3_6" value="a"> A. 超过X的免赔额，保险人支付十足保障</label>
+    <label class="quiz-option"><input type="radio" name="q3_6" value="b"> B. 超过X的起赔额，保险人支付十足保障</label>
+    <label class="quiz-option"><input type="radio" name="q3_6" value="c"> C. 超过X的免赔额，保险人收取额外保费</label>
+    <label class="quiz-option"><input type="radio" name="q3_6" value="d"> D. 超过X的起赔额，保险人收取额外保费</label>
+    <div class="quiz-feedback">起赔额超过后全额赔（全额保障）。免赔额超过后只赔超过部分（不是十足保障）。选 B。</div>
+  </div>
+
+  <h2>3.5 分担</h2>
+  <div class="plain-box">
+    <strong>大白话：</strong>如果同一份财产买了<strong>多份保险</strong>（重复保险），多个保险公司按比例分摊赔款，你不能全部都要。<br>
+    <strong>重要：</strong>只有<strong>弥偿保险</strong>才适用分担。<strong>人寿保险不适用</strong>——人死了，每份寿险都全赔。
+  </div>
+
+  <div class="card">
+    <p><strong>分担产生条件：</strong></p>
     <ul>
-      <li>自己的生命/肢体 — 有</li>
-      <li>配偶 — 有</li>
-      <li>未满 18 岁的子女 — 有</li>
-      <li>债权人对债务人 — 有（别人欠你钱）</li>
+      <li>相同的权益、危险和标的物</li>
+      <li>只有当弥偿出现，分担才适用</li>
     </ul>
-    <p><strong>记忆：</strong>只有"别人欠你钱"有权益（你是债权人），不是反过来。</p>
   </div>
 
-  <h2>3.2 最高诚信 (Utmost Good Faith)</h2>
-  <div class="card">
-    <h4>一般诚信 vs 最高诚信</h4>
-    <table>
-      <tr><th>对比项</th><th>普通合同</th><th>保险合同</th></tr>
-      <tr><td>要求</td><td>诚实做人就行</td><td>必须主动把所有重要事实都说出来</td></tr>
-      <tr><td>负担</td><td>没说的你没责任</td><td>你不说就是你的错</td></tr>
-    </table>
-    <p>买保险不一样 — 就算保险公司没问，你也得把知道的都主动说出来，这叫<strong>主动披露责任</strong>。</p>
+  <h2>3.6 代位</h2>
+  <div class="plain-box">
+    <strong>大白话：</strong>保险公司赔了你之后，<strong>你向第三者追讨的权利就转给保险公司了</strong>。比如别人撞了你的车，保险公司先赔你，然后保险公司替你去告那个肇事者。<br>
+    <strong>限制：</strong>保险公司追回来的钱不能超过它赔给你的金额。
   </div>
 
-  <div class="card">
-    <h4>什么是「重要事实」？</h4>
-    <div class="raw-passage"><strong>原文：</strong>影响一名审慎的保险人订定保费或决定是否承担风险的任何情况</div>
-    <p>白话：任何会影响保险公司决定"保不保你、收多少钱"的情况</p>
+  <div class="case-box">
+    <strong>案例：</strong>你的车被张三撞坏了，维修费5万。保险公司赔了你5万。<br>
+    → 保险公司现在"代位"你，去跟张三要这5万。<br>
+    → 如果保险公司成功追回6万，多出的1万要退还给你（不能赚你的差价）。
   </div>
 
-  <div class="card">
-    <h4>何时需要披露？</h4>
-    <table>
-      <tr><th>时机</th><th>说明</th></tr>
-      <tr><td>期限（在普通法中）</td><td>法律规定的披露时间</td></tr>
-      <tr><td>期限（在保单条款中）</td><td>保单里写的时间</td></tr>
-      <tr><td>续保</td><td>每年续的时候也要重新说</td></tr>
-      <tr><td>合约更改</td><td>改合同条款时也要说</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <h4>违反最高诚信的四种形式</h4>
-    <table>
-      <tr><th>繁体</th><th>白话</th></tr>
-      <tr><td>欺诈性失实陈述</td><td>故意跟你说假话</td></tr>
-      <tr><td>非欺诈性失实陈述</td><td>不是故意的，但跟你说错了（疏忽/无意）</td></tr>
-      <tr><td>欺诈性不披露</td><td>故意瞒着不告诉你</td></tr>
-      <tr><td>非欺诈性不披露</td><td>不是故意的，但忘了说</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <h4>补救方法（违反后的后果）</h4>
-    <p>自始推翻整份合约、提出诉讼追讨赔偿、不予追究</p>
-  </div>
-
-  <h2>3.3 近因 (Proximate Cause)</h2>
-  <div class="card">
-    <div class="raw-passage"><strong>定义：</strong>一项损失的有效或主导成因</div>
-    <p>通俗：造成损失的最主要、最直接的原因。保险公司只认那个"起决定性作用"的原因。</p>
-
-    <h4>三种危险（风险类型）</h4>
-    <table>
-      <tr><th>类型</th><th>含义</th></tr>
-      <tr><td>受保危险</td><td>保单里明确保的（如火险的火）</td></tr>
-      <tr><td>除外危险</td><td>保单里明确不保的（如战争）</td></tr>
-      <tr><td>不保危险</td><td>没说要保也没说不保的（中间地带）</td></tr>
-    </table>
-
-    <h4>经典案例</h4>
-    <p>火险保的房子着火了 → 消防员来救火 → 砸门、喷水造成额外损坏 → <strong>这个额外损坏赔不赔？</strong></p>
-    <p><strong>答：赔！</strong> 因为额外损坏的根源是"受保危险（火灾）"引起的。</p>
-    <p><strong>口诀：</strong>受保危险引起的不保危险 = 赔！源头是受保的就行。</p>
-  </div>
-
-  <h2>3.4 弥偿 (Indemnity)</h2>
-  <div class="card">
-    <div class="raw-passage"><strong>定义：</strong>对损失不多也不少的财务补偿</div>
-    <p>通俗：赔你刚刚好的钱，让你回到出事前的状态，不让你赚也不让你亏。</p>
-
-    <h4>弥偿的提供方式</h4>
-    <p>现金支付、维修、更换、恢复原状</p>
-
-    <h4>相关概念</h4>
-    <table>
-      <tr><th>概念</th><th>白话</th></tr>
-      <tr><td>损余</td><td>东西坏了还有剩的（报废车还能卖废铁）</td></tr>
-      <tr><td>委付</td><td>主要是海上保险：东西废了，我不要了，全赔我吧（所有权给你）</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <h4>限制弥偿的保单条款</h4>
-    <table>
-      <tr><th>条款</th><th>理解</th></tr>
-      <tr><td>比例分摊</td><td>保额不够 → 赔钱也打折（保100万只保了50万，出事赔一半）</td></tr>
-      <tr><td>保单免赔额</td><td>每次出事先自己掏的钱（类似起付线）</td></tr>
-      <tr><td>保单起赔额</td><td>损失没到一定金额不赔，到了就全赔（类似阈值）</td></tr>
-      <tr><td>保单限额</td><td>最高就赔这么多</td></tr>
-      <tr><td>重置保险</td><td>按重新买一个新的价格赔，不是按旧东西折价</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <h4>免赔额 vs 起赔额（考试易混！）</h4>
-    <table>
-      <tr><th>概念</th><th>例子</th><th>结果</th></tr>
-      <tr><td>免赔额 4000 元</td><td>修理费 14000 元</td><td>保险公司赔 10000 元（14000-4000）</td></tr>
-      <tr><td>免赔额 4000 元</td><td>修理费 3000 元</td><td>不到 4000，保险公司不赔</td></tr>
-      <tr><td>起赔额 25 万 (5%)</td><td>修理费 10 万元</td><td>不到 25 万，保险公司不赔</td></tr>
-      <tr><td>起赔额 25 万 (5%)</td><td>修理费 100 万元</td><td>超过 25 万，全赔 100 万</td></tr>
-    </table>
-    <p><strong>核心区别：</strong>免赔额 = 超过部分才赔；起赔额 = 超过了就全赔（不是只赔超过的部分）</p>
-  </div>
-
-  <div class="card">
-    <h4>超越弥偿的保单条款（赔得比实际损失多）</h4>
-    <table>
-      <tr><th>条款</th><th>含义</th></tr>
-      <tr><td>"以新代旧"保障</td><td>旧东西坏了赔个新的，不扣折旧（如家居保险）</td></tr>
-      <tr><td>约定价值保单</td><td>买的时候就定好值多少钱，出事按约定价赔（如艺术品、珠宝）</td></tr>
-      <tr><td>水险保单</td><td>海上保险的特殊定值方式</td></tr>
-    </table>
-  </div>
-
-  <div class="checklist" data-chapter="ch3">
-    <p style="font-weight:600;margin-bottom:6px;">检查清单</p>
-    <label><input type="checkbox"> 可保权益：人寿=买时，其他=出事时</label>
-    <label><input type="checkbox"> 最高诚信：必须主动披露重要事实</label>
-    <label><input type="checkbox"> 四种违反形式 + 补救方法</label>
-    <label><input type="checkbox"> 近因：源头是受保危险就赔</label>
-    <label><input type="checkbox"> 弥偿：不多不少刚好赔</label>
-    <label><input type="checkbox"> 免赔额 vs 起赔额 的区别</label>
+  <div class="quiz-question" data-answer="a">
+    <h4>7. 第三者疏忽后，以下哪种情况不会产生代位？</h4>
+    <label class="quiz-option"><input type="radio" name="q3_7" value="a"> A. 被保人死亡（人寿保单）</label>
+    <label class="quiz-option"><input type="radio" name="q3_7" value="b"> B. 受保建筑物受损（火险）</label>
+    <label class="quiz-option"><input type="radio" name="q3_7" value="c"> C. 受保汽车严重损毁（汽车保单）</label>
+    <label class="quiz-option"><input type="radio" name="q3_7" value="d"> D. 以上所有各项</label>
+    <div class="quiz-feedback">代位是弥偿的引申，而人寿保险不适用弥偿。所以第三者疏忽造成人寿保单的被保人死亡，不会产生代位。选 A。</div>
   </div>
 </div>
 
-<!-- ==================== 第4章 ==================== -->
+<!-- ==================== CH4 保险公司主要功能 ==================== -->
 <div class="section" id="sec-ch4">
-  <h1>第4章 <span style="color:var(--text2);font-weight:400;font-size:20px;">保险公司的主要功能</span></h1>
-  <p style="color:var(--text2);margin-bottom:20px;">比重 9% · 约 7 题</p>
+  <span class="tag tag-info">第4章 · 9%</span>
+  <h1>保险公司的主要功能</h1>
 
-  <h2>4.4 保险销售</h2>
-  <div class="card">
-    <table>
-      <tr><th>功能</th><th>说明</th></tr>
-      <tr><td>保险销售</td><td>卖保险的部门</td></tr>
-      <tr><td>与产品开发、市场营销紧密合作</td><td>销售、开发、营销要一起干活</td></tr>
-      <tr><td>加强销售（培训部+市场营销部合作）</td><td>培训和营销配合提升销售能力</td></tr>
-      <tr><td>监察</td><td>盯着销售业绩和市场走势</td></tr>
-    </table>
+  <div class="feature-grid">
+    <div class="feature-card"><div class="icon">🔬</div><h4>产品开发</h4><p>设计新的保险产品</p></div>
+    <div class="feature-card"><div class="icon">🤝</div><h4>客户服务</h4><p>联络、咨询、投诉处理</p></div>
+    <div class="feature-card"><div class="icon">📢</div><h4>市场行销</h4><p>推广、广告、赞助</p></div>
+    <div class="feature-card"><div class="icon">📋</div><h4>保险销售</h4><p>销售团队管理与培训</p></div>
+    <div class="feature-card"><div class="icon">🔍</div><h4>核保</h4><p>评估风险、决定保不保</p></div>
+    <div class="feature-card"><div class="icon">📄</div><h4>保单处理</h4><p>签发、管理、变更保单</p></div>
+    <div class="feature-card"><div class="icon">💰</div><h4>理赔</h4><p>处理索偿、支付赔款</p></div>
+    <div class="feature-card"><div class="icon">🔄</div><h4>再保险</h4><p>保险公司给自己买保险</p></div>
+    <div class="feature-card"><div class="icon">📊</div><h4>精算支援</h4><p>算保费、算储备金</p></div>
+    <div class="feature-card"><div class="icon">💼</div><h4>会计及投资</h4><p>管钱、投资、记账</p></div>
+    <div class="feature-card"><div class="icon">📚</div><h4>培训及发展</h4><p>培训员工和代理人</p></div>
+    <div class="feature-card"><div class="icon">👤</div><h4>管控要员</h4><p>合规、风控、内审等</p></div>
   </div>
 
-  <h2>4.5 核保 (Underwriting)</h2>
-  <div class="card">
-    <p>核保 = 保险公司评估风险、决定保不保你、收多少钱的过程。</p>
-    <table>
-      <tr><th>对比项</th><th>人寿保险</th><th>一般保险（车险、火险等）</th></tr>
-      <tr><td>核保频率</td><td>一次性（集中处理）</td><td>不一定是永久性（分散处理）</td></tr>
-      <tr><td>取消保单</td><td>不能随便取消</td><td>续保时可以改，甚至可以取消</td></tr>
-      <tr><td>业务类型</td><td>极为合意的业务</td><td>极不合意的业务</td></tr>
-    </table>
-    <p><strong>名词：</strong>目标风险 = 保险公司想接的业务；拒绝名单 = 不想接的。</p>
+  <h2>4.1 核保</h2>
+  <div class="plain-box">
+    <strong>大白话：</strong>核保就是保险公司决定"<strong>这个人我能不能保、保多少钱、什么条件</strong>"。好比学校招生要看成绩——保险公司核保就是在"选学生"。
   </div>
 
-  <h2>4.6 保单处理</h2>
-  <div class="card">
-    <table>
-      <tr><th>对比项</th><th>人寿保险</th><th>一般保险</th></tr>
-      <tr><td>索偿时</td><td>必须出示保单正本</td><td>不一定需要正本</td></tr>
-      <tr><td>文件准确性</td><td>非常重视（保司不能取消保单）</td><td>-</td></tr>
-      <tr><td>合同生效</td><td>交了第一笔保费后才生效</td><td>有时候保费没交也生效了</td></tr>
-      <tr><td>续保</td><td>不能随意改</td><td>续保时可以改或取消</td></tr>
-    </table>
+  <div class="comparison">
+    <div class="comp-col comp-left">
+      <div class="comp-header">人寿保险核保</div>
+      <div class="comp-items">
+        ✅ 保险人<strong>不能</strong>取消保单<br>
+        ✅ 目标是"极为合意"的业务<br>
+        ✅ 错误处理：不是永久性的（可修改）
+      </div>
+    </div>
+    <div class="comp-col comp-right">
+      <div class="comp-header">一般保险核保</div>
+      <div class="comp-items">
+        ✅ 续保时条件可以检讨<br>
+        ✅ 必要时可以取消保单<br>
+        ✅ 目标是"极不合意"的业务应拒绝
+      </div>
+    </div>
   </div>
 
-  <h2>4.9 精算师</h2>
-  <div class="card">
-    <p>精算师最核心的作用在寿险领域。算保费、算准备金、算负债。寿险靠数学（死亡率、预计利息收益）。</p>
+  <h2>4.2 再保险</h2>
+  <div class="plain-box">
+    <strong>大白话：</strong>就是<strong>保险公司给自己买保险</strong>。怕赔得太多扛不住，找另一家保险公司分担风险。<br>
+    <strong>对被保险人的影响：</strong>没有直接影响。你不需要知道，保险公司还是全额赔你。
   </div>
 
-  <div class="checklist" data-chapter="ch4">
-    <p style="font-weight:600;margin-bottom:6px;">检查清单</p>
-    <label><input type="checkbox"> 核保：评估风险决定保不保</label>
-    <label><input type="checkbox"> 人寿 vs 一般保险的核保差异</label>
-    <label><input type="checkbox"> 精算师最核心在寿险</label>
+  <div class="card">
+    <p><strong>再保险的好处：</strong></p>
+    <ul>
+      <li>让保险公司的财务状况更稳健</li>
+      <li>分担大额损失和巨灾风险</li>
+      <li>提高保险公司的承保能力（敢接更大的单）</li>
+    </ul>
+  </div>
+
+  <h2>4.3 精算</h2>
+  <div class="plain-box">
+    <strong>大白话：</strong>精算师就是保险公司的"数学家"——算每个人该交多少保费（保费率）、公司该留多少钱（储备金）、欠多少钱（负债估值）。<br>
+    <strong>最关键的领域：</strong>人寿保险（因为依赖大量数学计算：死亡率、利息收益等）。
+  </div>
+
+  <div class="quiz-question" data-answer="b">
+    <h4>1. 以大型客户为对象的保险产品是指：</h4>
+    <label class="quiz-option"><input type="radio" name="q4_1" value="a"> A. 个别产品的开发</label>
+    <label class="quiz-option"><input type="radio" name="q4_1" value="b"> B. 产品组合的开发</label>
+    <label class="quiz-option"><input type="radio" name="q4_1" value="c"> C. 财产组合的开发</label>
+    <label class="quiz-option"><input type="radio" name="q4_1" value="d"> D. 一般保险的开发</label>
+    <div class="quiz-feedback">针对大型客户，保险公司开发"组合"形式的产品来维持竞争优势。选 B。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="a">
+    <h4>2. 以下哪三项属于再保险的功能？</h4>
+    <div class="quiz-meta">i. 足够的再保险对保险人财政稳健重要  ii. 再保险可分担保险  iii. 再保险可协助应付巨灾  iv. 被保险人可向再保险人追讨</div>
+    <label class="quiz-option"><input type="radio" name="q4_2" value="a"> A. i,ii,iii</label>
+    <label class="quiz-option"><input type="radio" name="q4_2" value="b"> B. i,ii,iv</label>
+    <label class="quiz-option"><input type="radio" name="q4_2" value="c"> C. i,iii,iv</label>
+    <label class="quiz-option"><input type="radio" name="q4_2" value="d"> D. ii,iii,iv</label>
+    <div class="quiz-feedback">再保险对保单持有人没有直接影响，被保险人无权向再保险人追讨（iv错）。选 A。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="c">
+    <h4>3. 精算师最关键的工作在：</h4>
+    <label class="quiz-option"><input type="radio" name="q4_3" value="a"> A. 一般保险</label>
+    <label class="quiz-option"><input type="radio" name="q4_3" value="b"> B. 财产保险</label>
+    <label class="quiz-option"><input type="radio" name="q4_3" value="c"> C. 人寿保险</label>
+    <label class="quiz-option"><input type="radio" name="q4_3" value="d"> D. 团体保险</label>
+    <div class="quiz-feedback">人寿保险最依赖数学计算（死亡率、利息收益），精算师在保费厘定、储备金计算等方面作用最大。选 C。</div>
   </div>
 </div>
 
-<!-- ==================== 第5章 ==================== -->
+<!-- ==================== CH5 保险业务种类 ==================== -->
 <div class="section" id="sec-ch5">
-  <h1>第5章 <span style="color:var(--text2);font-weight:400;font-size:20px;">保险业务种类</span></h1>
-  <p style="color:var(--text2);margin-bottom:20px;">比重 5% · 约 4 题</p>
+  <span class="tag tag-info">第5章 · 5%</span>
+  <h1>保险业务种类</h1>
 
+  <h2>5.1 三种分类方法</h2>
   <div class="card">
-    <h4>四种分类方式</h4>
     <table>
-      <tr><th>分类方式</th><th>说明</th></tr>
-      <tr><td>学术分类（功能分类）</td><td>按保险标的/功能分 → 人身、财产、责任、经济权益四种 ← <strong>考试要考这个</strong></td></tr>
-      <tr><td>部门式分类</td><td>公司内部按业务部门分（英式或美式）</td></tr>
-      <tr><td>法定分类</td><td>监管机构为了管保险社授权的分类（长期9类+一般17类）</td></tr>
-      <tr><td>业务分类</td><td>部门式分类的另一种叫法</td></tr>
+      <tr><th>分类方式</th><th>用途</th><th>内容</th></tr>
+      <tr><td><strong>法定分类</strong></td><td>保监局授权及监察</td><td>长期业务（A-I 共9类）+ 一般业务（1-17 共17类）</td></tr>
+      <tr><td><strong>实务分类</strong>（部门式）</td><td>公司内部管理</td><td>英式（寿险/水险/火险/意外险）或美式（人寿/非人寿）</td></tr>
+      <tr><td><strong>学术分类</strong>（功能式）</td><td>专业进修及培训</td><td>人身保险、财产保险、责任保险、经济权益保险</td></tr>
     </table>
   </div>
 
+  <h3>学术分类（4类，按保险标的）</h3>
   <div class="card">
-    <h4>学术分类的四种（考试核心）</h4>
     <table>
-      <tr><th>分类</th><th>保什么</th></tr>
-      <tr><td>人身保险</td><td>保人的（人寿、意外、医疗）</td></tr>
-      <tr><td>财产保险</td><td>保实物的损失和损害（房子、车子）</td></tr>
-      <tr><td>责任保险</td><td>保你对别人造成伤害的法律责任（撞了人要赔钱）</td></tr>
-      <tr><td>经济权益保险</td><td>不属于上面三类的财务权益（信用保险、保证保险）</td></tr>
+      <tr><th>类别</th><th>大白话</th><th>例子</th></tr>
+      <tr><td>人身保险</td><td>保人的寿命和身体</td><td>寿险、意外险、医疗险</td></tr>
+      <tr><td>财产保险</td><td>保物（实物损失和损害）</td><td>火险、车险、水险</td></tr>
+      <tr><td>责任保险</td><td>保你对别人的赔偿责任</td><td>第三方责任险、雇员补偿</td></tr>
+      <tr><td>经济权益保险</td><td>保财务上的利益</td><td>信用保险、保证保险</td></tr>
     </table>
   </div>
 
-  <div class="checklist" data-chapter="ch5">
-    <p style="font-weight:600;margin-bottom:6px;">检查清单</p>
-    <label><input type="checkbox"> 记住学术分类的四种类型</label>
-    <label><input type="checkbox"> 人身、财产、责任、经济权益各指什么</label>
+  <h2>5.2 再保险</h2>
+  <div class="card">
+    <table>
+      <tr><th>类型</th><th>说明</th></tr>
+      <tr><td>分出再保险</td><td>A公司向B公司买保险，转移自己的部分风险</td></tr>
+      <tr><td>分入再保险</td><td>B公司收了A公司的钱，替A公司分担风险</td></tr>
+      <tr><td>专业再保险人</td><td>只做再保险业务的公司（自己不接散户）</td></tr>
+    </table>
+  </div>
+
+  <h2>5.3 协助机构</h2>
+  <div class="card">
+    <table>
+      <tr><th>机构</th><th>作用</th></tr>
+      <tr><td>香港汽车保险局</td><td>强制车险不存在或保险公司清盘时提供补偿（经费来自汽车保费附加费）</td></tr>
+      <tr><td>保险公司（雇员补偿）无力偿债管理局</td><td>经营雇员补偿保险的保险公司组成，经费来自雇员补偿保费附加费</td></tr>
+      <tr><td>雇员补偿联保计划管理局</td><td>让高风险工种的雇主也能买到员工保险（集体方式承担风险）</td></tr>
+    </table>
+  </div>
+
+  <div class="quiz-question" data-answer="c">
+    <h4>1. 保險分为人身、财产、责任、经济权益四类，属于哪种分类？</h4>
+    <label class="quiz-option"><input type="radio" name="q5_1" value="a"> A. 部门式分类</label>
+    <label class="quiz-option"><input type="radio" name="q5_1" value="b"> B. 法定分类</label>
+    <label class="quiz-option"><input type="radio" name="q5_1" value="c"> C. 学术分类</label>
+    <label class="quiz-option"><input type="radio" name="q5_1" value="d"> D. 业务分类</label>
+    <div class="quiz-feedback">按保险标的（功能）分为人身保险、财产保险、责任保险、经济权益保险——这是学术/功能分类，用于专业进修和培训。选 C。</div>
   </div>
 </div>
 
-<!-- ==================== 第6章 ==================== -->
+<!-- ==================== CH6 保险业规管架构 ==================== -->
 <div class="section" id="sec-ch6">
-  <h1>第6章 <span style="color:var(--text2);font-weight:400;font-size:20px;">保险业规管架构</span> <span class="star-icon">⭐</span></h1>
-  <p style="color:var(--text2);margin-bottom:20px;">比重 21% · 约 16 题 — 第二重点</p>
+  <span class="tag tag-info">第6章 · 21% ⭐</span>
+  <h1>保险业的规管架构</h1>
 
-  <h2>6.2 香港保险中介人的规管</h2>
+  <h2>6.1 香港保险公司的规管</h2>
+
+  <h3>保监局的政策目标</h3>
   <div class="card">
-    <h4>重大改革：2019年9月23日</h4>
-    <table>
-      <tr><th>时间</th><th>情况</th></tr>
-      <tr><td>2019年9月22日前</td><td>三个自律规管机构各自管理（IARB、CIB、PIBA）</td></tr>
-      <tr><td>2019年9月23日起</td><td>保监局统一发牌和监管</td></tr>
-    </table>
+    <ul>
+      <li>确保规管架构与时并进</li>
+      <li>为保单持有人和潜在保单持有人提供更佳保障</li>
+      <li>与国际惯常做法看齐</li>
+      <li>建立直接规管保险中介人的制度</li>
+    </ul>
+  </div>
 
-    <h4>三个旧的自律规管机构</h4>
+  <h3>《保险业条例》</h3>
+  <div class="plain-box">
+    <strong>大白话：</strong>这是香港保险业的"基本法"，由保监局负责执行。管两件事：<strong>①管保险公司 ②管保险中介人</strong>（代理人+经纪）。
+  </div>
+
+  <div class="card">
+    <p><strong>保监局的主要职能：</strong></p>
+    <ol>
+      <li>通过发牌制度规管中介人操守</li>
+      <li>提高公众对保险产品的了解</li>
+      <li>制订有效规管策略，促进市场可持续发展</li>
+      <li>就影响保险业的事宜进行研究</li>
+      <li>协助财政司司长维持香港金融稳定</li>
+    </ol>
+  </div>
+
+  <h3>在香港经营保险业务的最低要求</h3>
+  <div class="card">
+    <p><strong>目的：财政稳健</strong></p>
     <table>
-      <tr><th>缩写</th><th>管什么</th></tr>
-      <tr><td>IARB</td><td>保险代理登记委员会 — 管保险代理人</td></tr>
-      <tr><td>CIB</td><td>香港保险顾问联会 — 管保险顾问</td></tr>
-      <tr><td>PIBA</td><td>香港专业保险经纪协会 — 管保险经纪</td></tr>
+      <tr><th>要求</th><th>大白话</th></tr>
+      <tr><td>a. 实缴股本</td><td>公司必须实际出资一定的本金</td></tr>
+      <tr><td>b. 偿付准备金</td><td>资产必须比负债多出一定金额</td></tr>
+      <tr><td>c. 董事及控权人属"适当人选"</td><td>老板和管理层必须合格（学历、经验、信誉、财务状况等7项标准）</td></tr>
+      <tr><td>d. "足够"的再保险</td><td>必须有合适的再保险安排</td></tr>
+      <tr><td>e. 呈报规定</td><td>每年向保监局交财务报表</td></tr>
     </table>
   </div>
 
-  <h2>6.2.1 持牌制度的基本规定</h2>
+  <h3>保监局的干预权力</h3>
   <div class="card">
-    <p><strong>核心原则：</strong>任何人要做保险中介活动，必须拿到保监局发的牌照。</p>
-
-    <h4>什么是「受规管活动」？（需要拿牌才能干的事）</h4>
-    <table>
-      <tr><th>活动</th><th>白话</th></tr>
-      <tr><td>邀请或诱使任何人订立保险合约</td><td>拉人买保险</td></tr>
-      <tr><td>邀请或诱使任何人作出"关键决定"</td><td>撺掇人做跟保险有关的重要决定</td></tr>
-      <tr><td>提供"受规管意见"</td><td>给保险建议、意见</td></tr>
-      <tr><td>就保险合约提出申请或作出建议</td><td>申请投保或推荐保险</td></tr>
-      <tr><td>保险合约的发出、延续或续期</td><td>发保单、续保</td></tr>
-      <tr><td>取消、终止、退回或转让保险合约</td><td>退保、转让保单</td></tr>
-      <tr><td>行使保险合约下的权利</td><td>行使保单里的权利</td></tr>
-      <tr><td>更改保险合约的任何条款或条件</td><td>改保单条款</td></tr>
-      <tr><td>提出或了结保险申索</td><td>理赔</td></tr>
-    </table>
-    <p><strong>通俗：</strong>只要跟保险有关的活动 — 介绍、建议、签单、续保、理赔 — 都得有牌照。</p>
+    <p>当保险公司出问题时，保监局可以：</p>
+    <div class="tag-list">
+      <span class="tag tag-star">限制保费收入</span>
+      <span class="tag tag-info">限制投资</span>
+      <span class="tag tag-star">限制新业务</span>
+      <span class="tag tag-info">由认可受托人保管资产</span>
+      <span class="tag tag-orange">特定精算调查</span>
+      <span class="tag tag-pink">委任经理管理</span>
+      <span class="tag tag-important">将保险人清盘</span>
+    </div>
   </div>
 
-  <h2>6.1.2 保单是什么？</h2>
+  <h2>6.2 保险中介人的规管</h2>
+
+  <h3>历史变化</h3>
+  <div class="comparison">
+    <div class="comp-col comp-left">
+      <div class="comp-header">2019年9月22日前</div>
+      <div class="comp-items">
+        由3个自律规管机构登记和规管：<br>
+        ① 香港保险顾问联会 (CIB)<br>
+        ② 保险代理登记委员会 (ARB)<br>
+        ③ 香港专业保险经纪协会 (PIBA)
+      </div>
+    </div>
+    <div class="comp-col comp-right">
+      <div class="comp-header">2019年9月23日起</div>
+      <div class="comp-items">
+        ✅ 保监局直接发牌和监管<br>
+        ✅ 统一由保监局管
+      </div>
+    </div>
+  </div>
+
+  <h3>受规管活动</h3>
+  <div class="card">
+    <p>以下活动必须持有保监局牌照才能做：</p>
+    <div class="tag-list">
+      <span class="tag tag-info">洽谈或安排保险合约</span>
+      <span class="tag tag-info">邀请或诱使他人订立保险合约</span>
+      <span class="tag tag-info">提供受规管意见</span>
+      <span class="tag tag-info">发出/延续/续保</span>
+      <span class="tag tag-info">取消/终止/转让合约</span>
+      <span class="tag tag-info">提出或了结保险申索</span>
+    </div>
+  </div>
+
+  <h3>"适当人选"准则</h3>
+  <div class="card">
+    <p><strong>个人申请者：</strong>学历/资历/经验 + 称职公正能力 + 信誉品格 + 财政状况 + 其他相关事宜</p>
+    <p><strong>商业实体：</strong>称职公正能力 + 信誉品格 + 财政状况 + 其他相关事宜</p>
+    <p>准绳同时适用于续牌申请。</p>
+  </div>
+
+  <h3>《持牌保险代理人操守守则》8大一般原则</h3>
   <div class="card">
     <table>
-      <tr><th>文件</th><th>白话解释</th></tr>
-      <tr><td>保单（保险单）</td><td>证明保险合同存在的文件</td></tr>
-      <tr><td>投保书</td><td>你想买保险填的申请表</td></tr>
-      <tr><td>保险凭证</td><td>团险里给每个员工的证明</td></tr>
+      <tr><th>原则</th><th>大白话</th></tr>
+      <tr><td>1. 诚实及持正</td><td>不要骗人</td></tr>
+      <tr><td>2. 公平行事并符合客户最佳利益</td><td>客户利益优先</td></tr>
+      <tr><td>3. 以谨慎、技巧和努力行事</td><td>认真干活</td></tr>
+      <tr><td>4. 胜任提供意见</td><td>不懂别瞎说</td></tr>
+      <tr><td>5. 资料披露</td><td>该说的要说清楚</td></tr>
+      <tr><td>6. 意见的合适性</td><td>推荐的产品要适合客户</td></tr>
+      <tr><td>7. 利益冲突</td><td>有冲突要先说</td></tr>
+      <tr><td>8. 客户资产</td><td>客户的💰要管好</td></tr>
     </table>
   </div>
 
-  <div class="checklist" data-chapter="ch6">
-    <p style="font-weight:600;margin-bottom:6px;">检查清单</p>
-    <label><input type="checkbox"> 2019年9月23日改革：三个自律机构 → 保监局统一发牌</label>
-    <label><input type="checkbox"> 记住 IARB、CIB、PIBA 各管什么</label>
-    <label><input type="checkbox"> 受规管活动的范围（拿牌才能干的）</label>
-    <label><input type="checkbox"> 保单 vs 投保书 vs 保险凭证</label>
+  <h2>6.3 保险索偿投诉局</h2>
+  <div class="card">
+    <p><strong>目的：</strong>为个人保单引起的金钱性质纠纷提供另类调解机制（不用打官司）。</p>
+    <table>
+      <tr><th>项目</th><th>详情</th></tr>
+      <tr><td>投诉人</td><td>保单持有人/受益人/受保人/合法索偿人</td></tr>
+      <tr><td>费用</td><td>不论输赢，免费</td></tr>
+      <tr><td>最高裁定金额</td><td>100万港元</td></tr>
+      <tr><td>上诉</td><td>无权上诉，但不满意可采取法律行动</td></tr>
+      <tr><td>不处理的案子</td><td>理赔通知后超过6个月、商业/工业/第三者保险、正在打官司的</td></tr>
+    </table>
+  </div>
+
+  <div class="quiz-question" data-answer="c">
+    <h4>1. 《保险业条例》主要涵盖：</h4>
+    <label class="quiz-option"><input type="radio" name="q6_1" value="a"> A. 保险人</label>
+    <label class="quiz-option"><input type="radio" name="q6_1" value="b"> B. 保险中介人</label>
+    <label class="quiz-option"><input type="radio" name="q6_1" value="c"> C. 保险人及保险中介人</label>
+    <label class="quiz-option"><input type="radio" name="q6_1" value="d"> D. 保险代理及保险经纪</label>
+    <div class="quiz-feedback">《保险业条例》涵盖了保险人和保险中介人（代理人+经纪）的规管。选 C。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="d">
+    <h4>2. 以下哪些属于保监局的干预权力？</h4>
+    <div class="quiz-meta">i. 限制保费收入  ii. 将保险人清盘  iii. 特定精算调查  iv. 委任经理管理</div>
+    <label class="quiz-option"><input type="radio" name="q6_2" value="a"> A. 只有i,iii</label>
+    <label class="quiz-option"><input type="radio" name="q6_2" value="b"> B. 只有iii</label>
+    <label class="quiz-option"><input type="radio" name="q6_2" value="c"> C. 只有iii,iv</label>
+    <label class="quiz-option"><input type="radio" name="q6_2" value="d"> D. i,ii,iii,iv</label>
+    <div class="quiz-feedback">全部四个都是干预权力：限制保费收入、清盘、特定精算调查、委任经理管理。选 D。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="a">
+    <h4>3. 保险合约完整条款的证据是：</h4>
+    <label class="quiz-option"><input type="radio" name="q6_3" value="a"> A. 保单</label>
+    <label class="quiz-option"><input type="radio" name="q6_3" value="b"> B. 投保书</label>
+    <label class="quiz-option"><input type="radio" name="q6_3" value="c"> C. 保险凭证</label>
+    <label class="quiz-option"><input type="radio" name="q6_3" value="d"> D. 法律上强制执行的协议</label>
+    <div class="quiz-feedback">保单是保险合约条款的可见证据。投保书是投保人的申请文件，保险凭证是团险给个人的文件。选 A。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="c">
+    <h4>4. 保险投诉局的基本目的是：</h4>
+    <label class="quiz-option"><input type="radio" name="q6_4" value="a"> A. 代表成员处理理赔</label>
+    <label class="quiz-option"><input type="radio" name="q6_4" value="b"> B. 处理各类针对保险人的投诉</label>
+    <label class="quiz-option"><input type="radio" name="q6_4" value="c"> C. 处理以个人作保单持有人的索偿投诉</label>
+    <label class="quiz-option"><input type="radio" name="q6_4" value="d"> D. 处理第三者的法定保险索偿</label>
+    <div class="quiz-feedback">保险投诉局处理个人保险合约（非商业/工业/第三者）引起的金钱性质纠纷。选 C。</div>
   </div>
 </div>
 
-<!-- ==================== 第7章 ==================== -->
+<!-- ==================== CH7 职业道德 ==================== -->
 <div class="section" id="sec-ch7">
-  <h1>第7章 <span style="color:var(--text2);font-weight:400;font-size:20px;">职业道德及其他问题</span></h1>
-  <p style="color:var(--text2);margin-bottom:20px;">比重 7% · 约 5 题</p>
+  <span class="tag tag-info">第7章 · 7%</span>
+  <h1>职业道德及其他有关问题</h1>
 
-  <h2>7.4.6 反洗钱</h2>
+  <h2>7.1 保险中介人的共同责任</h2>
   <div class="card">
-    <h4>《打击洗钱及恐怖分子资金筹集指引》</h4>
-    <table>
-      <tr><th>项目</th><th>说明</th></tr>
-      <tr><td>由谁发出</td><td>保险业监管局（保监局）</td></tr>
-      <tr><td>目的</td><td>为保险机构提供防止洗钱和恐怖融资的指引</td></tr>
-      <tr><td>适用对象</td><td>获授权保险人、再保险人、获委任保险代理人及获授权保险经纪</td></tr>
-    </table>
-    <p><strong>口诀：</strong>反洗钱指引 → 保监局发的。</p>
+    <ul>
+      <li>不诈骗</li>
+      <li>公平及合理的行为</li>
+      <li>不能不公平地从客户身上获取好处</li>
+      <li>所有行动必须合法</li>
+      <li>不能加诸不当影响（强迫客户）</li>
+    </ul>
+    <p style="margin-top:8px;"><strong>违反条例可能遭刑事检控，处罚严厉。</strong></p>
   </div>
 
-  <div class="checklist" data-chapter="ch7">
-    <p style="font-weight:600;margin-bottom:6px;">检查清单</p>
-    <label><input type="checkbox"> 反洗钱指引由保监局发出</label>
-    <label><input type="checkbox"> 适用对象：保险公司、再保公司、代理人、经纪</label>
+  <h3>保险经纪 vs 保险代理人</h3>
+  <div class="comparison">
+    <div class="comp-col comp-left">
+      <div class="comp-header">保险经纪</div>
+      <div class="comp-items">
+        ✅ 对客户负最高诚信<br>
+        ✅ 被视为保险业专家<br>
+        ✅ <strong>必须</strong>有专业弥偿保险<br>
+        ✅ 遵守代理法及经纪最低规定
+      </div>
+    </div>
+    <div class="comp-col comp-right">
+      <div class="comp-header">保险代理人</div>
+      <div class="comp-items">
+        ✅ 主要向保险人负责<br>
+        ✅ 必须书面委任<br>
+        ✅ 受到代理合约约束<br>
+        ✅ <strong>毋须</strong>备有专业弥偿保险
+      </div>
+    </div>
+  </div>
+
+  <h2>7.2 个人资料（私隐）条例</h2>
+  <div class="plain-box">
+    <strong>大白话：</strong>保险公司收集你的个人信息（医疗资料、身份证号等），必须<strong>合法、公平、不超乎适度</strong>，不能擅自改变用途，要安全保存。
+  </div>
+
+  <div class="card">
+    <p><strong>6大保障资料原则：</strong></p>
+    <ol>
+      <li>收集的目的及方式要正当</li>
+      <li>资料准确性及保留期限合理</li>
+      <li>使用方式有限制</li>
+      <li>有足够保安措施</li>
+      <li>公众可获取相关资料</li>
+      <li>个人有权查阅自己的资料</li>
+    </ol>
+  </div>
+
+  <h2>7.3 反歧视条例</h2>
+  <div class="card">
+    <p>香港有 <strong>4 条</strong>反歧视条例：</p>
+    <table>
+      <tr><th>条例</th><th>保护对象</th></tr>
+      <tr><td>《性别歧视条例》</td><td>性别、婚姻状况、怀孕</td></tr>
+      <tr><td>《残疾歧视条例》</td><td>身体残疾</td></tr>
+      <tr><td>《家庭岗位歧视条例》</td><td>家庭责任</td></tr>
+      <tr><td>《种族歧视条例》</td><td>种族</td></tr>
+    </table>
+    <p style="margin-top:8px;">注意：<strong>宗教</strong>不包括在内。</p>
+  </div>
+
+  <h3>保险中的"公平"歧视（被视为正当）</h3>
+  <div class="card">
+    <table>
+      <tr><th>类型</th><th>例子</th></tr>
+      <tr><td>人寿保险</td><td>女性寿命更长→保费比男性低</td></tr>
+      <tr><td>人身意外险</td><td>残疾人风险更高→保费更高或拒保</td></tr>
+    </table>
+  </div>
+
+  <h3>保险中的"不公平"歧视</h3>
+  <div class="card">
+    <table>
+      <tr><th>类型</th><th>例子</th></tr>
+      <tr><td>汽车保险</td><td>以"女性驾驶技术差"为由收更高保费</td></tr>
+      <tr><td>火险</td><td>拒绝为离婚妇女/单亲女性提供家居保险</td></tr>
+    </table>
+  </div>
+
+  <h2>7.4 打击洗钱及恐怖分子资金筹集</h2>
+
+  <h3>洗钱的三个步骤</h3>
+  <div class="steps">
+    <div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-content"><strong>存放</strong>——非法得来的现金先存入金融体系（银行等）</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-content"><strong>分层交易</strong>——通过复杂的金融交易，藏匿资金来源和拥有者身份</div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-content"><strong>整合</strong>——洗白后的钱回到正常金融体系，看起来合法了</div>
+    </div>
+  </div>
+
+  <div class="case-box">
+    <strong>保险被用于洗钱的例子：</strong><br>
+    • 用犯罪所得买保险，然后退保拿一张"干净"的支票<br>
+    • 更改保单受益人，让钱转给洗钱分子<br>
+    • 用寿险单做抵押，买其他金融产品
+  </div>
+
+  <h2>7.5 防止诈骗</h2>
+  <div class="card">
+    <p><strong>保险诈骗的例子：</strong></p>
+    <ul>
+      <li>安排保险时漏报或失实陈述（误导保险人）</li>
+      <li>诈骗性索偿（伪造索赔）</li>
+    </ul>
+    <p style="margin-top:8px;"><strong>防止诈骗的实际步骤：</strong>保持警觉 → 勤勉 → 沟通 → 诚信</p>
+  </div>
+
+  <div class="quiz-question" data-answer="d">
+    <h4>1. 保护个人资料的安全，由哪个机构全盘监察？</h4>
+    <label class="quiz-option"><input type="radio" name="q7_1" value="a"> A. 私人（资料）个人专员</label>
+    <label class="quiz-option"><input type="radio" name="q7_1" value="b"> B. 私隐（资料）个人专员</label>
+    <label class="quiz-option"><input type="radio" name="q7_1" value="c"> C. 个人（资料）私人专员</label>
+    <label class="quiz-option"><input type="radio" name="q7_1" value="d"> D. 个人资料私隐专员公署</label>
+    <div class="quiz-feedback">正确名称是"个人资料私隐专员公署"，按照《个人资料（私隐）条例》设立。选 D。</div>
+  </div>
+
+  <div class="quiz-question" data-answer="b">
+    <h4>2. 香港反歧视条例中，不包括以下哪项？</h4>
+    <label class="quiz-option"><input type="radio" name="q7_2" value="a"> A. 性别</label>
+    <label class="quiz-option"><input type="radio" name="q7_2" value="b"> B. 宗教</label>
+    <label class="quiz-option"><input type="radio" name="q7_2" value="c"> C. 家庭岗位</label>
+    <label class="quiz-option"><input type="radio" name="q7_2" value="d"> D. 残疾</label>
+    <div class="quiz-feedback">香港有四条反歧视条例：性别歧视、残疾歧视、家庭岗位歧视、种族歧视。宗教不在其中。选 B。</div>
   </div>
 </div>
 
-<!-- ==================== 术语速查 ==================== -->
-<div class="section" id="sec-terms">
-  <h1>核心术语繁简对照速查表</h1>
-  <div class="card">
-    <table>
-      <tr><th>繁体原文（考试用）</th><th>简体+白话</th></tr>
-      <tr><td>纯粹风险</td><td>纯风险（只亏不赚）</td></tr>
-      <tr><td>投机风险</td><td>投机风险（有赚有亏）</td></tr>
-      <tr><td>特定风险</td><td>特定风险（小范围）</td></tr>
-      <tr><td>基本风险</td><td>基本风险（大范围）</td></tr>
-      <tr><td>要约</td><td>要约（提出合同）</td></tr>
-      <tr><td>承约</td><td>承诺（接受合同）</td></tr>
-      <tr><td>代价</td><td>对价（交换的东西）</td></tr>
-      <tr><td>弥偿</td><td>赔偿（不多不少）</td></tr>
-      <tr><td>近因</td><td>近因（最直接的原因）</td></tr>
-      <tr><td>可保权益</td><td>可保利益（跟标的有关联）</td></tr>
-      <tr><td>最高诚信</td><td>最高诚信（必须主动说真话）</td></tr>
-      <tr><td>核保</td><td>核保（评估风险决定保不保）</td></tr>
-      <tr><td>免赔额</td><td>免赔额（自己先掏的钱）</td></tr>
-      <tr><td>起赔额</td><td>起赔额（超过才全赔）</td></tr>
-      <tr><td>委付</td><td>委付（东西不要了全赔）</td></tr>
-      <tr><td>损余</td><td>残值（坏了剩下的）</td></tr>
-      <tr><td>受保危险</td><td>承保风险（保单保的）</td></tr>
-      <tr><td>除外危险</td><td>除外责任（保单不保的）</td></tr>
-      <tr><td>分摊</td><td>分摊（多家保司按比例赔）</td></tr>
-      <tr><td>比例分摊</td><td>比例分摊（保额不足按比例打折）</td></tr>
-      <tr><td>欺诈性失实陈述</td><td>欺诈性虚假陈述（故意说假话）</td></tr>
-      <tr><td>非欺诈性失实陈述</td><td>无心之失（不小心说错了）</td></tr>
-      <tr><td>欺诈性不披露</td><td>故意隐瞒（故意不说）</td></tr>
-      <tr><td>非欺诈性不披露</td><td>疏忽遗漏（忘记说了）</td></tr>
-      <tr><td>追认</td><td>追认（事后同意）</td></tr>
-      <tr><td>转承责任</td><td>转承责任（别人干的我要负责）</td></tr>
-      <tr><td>表面权限</td><td>表面授权（看起来有权）</td></tr>
-      <tr><td>必要权限</td><td>必要授权（紧急情况）</td></tr>
-      <tr><td>不容反悔的代理权</td><td>禁止反言（不能赖账）</td></tr>
-      <tr><td>以新代旧</td><td>以旧换新（不扣折旧）</td></tr>
-      <tr><td>约定价值保单</td><td>定值保单（事先约定赔多少）</td></tr>
-      <tr><td>委托人</td><td>委托人/老板</td></tr>
-      <tr><td>代理人</td><td>代理人（替你办事的人）</td></tr>
-    </table>
+<!-- ==================== GLOSSARY ==================== -->
+<div class="section" id="sec-glossary">
+  <span class="tag tag-info">📖 术语速查</span>
+  <h1>重点术语一览</h1>
+  <p style="margin-bottom:12px;font-size:14px;color:var(--text2);">点击每个术语展开解释。</p>
+  <div id="glossaryList">
+    <div class="glossary-term"><div class="term-name">风险 (Risk)</div><div class="term-def">与潜在损失有关的不确定性。通俗说：未来可能发生坏事，但不确定会不会发生、损失多大。</div></div>
+    <div class="glossary-term"><div class="term-name">纯粹风险 (Pure Risk)</div><div class="term-def">只有损失可能、没有收益可能的风险。例如火灾、意外。商业保险主要保这类。</div></div>
+    <div class="glossary-term"><div class="term-name">投机风险 (Speculative Risk)</div><div class="term-def">可能赚钱也可能赔钱的风险。例如炒股、创业。保险公司一般不保。</div></div>
+    <div class="glossary-term"><div class="term-name">特定风险 (Particular Risk)</div><div class="term-def">影响范围局限在个人或少数人的风险。例如汽车意外、个人损伤。较可保。</div></div>
+    <div class="glossary-term"><div class="term-name">基本风险 (Fundamental Risk)</div><div class="term-def">影响大范围人群、个人无法控制的风险。例如战争、饥荒。较不可保。</div></div>
+    <div class="glossary-term"><div class="term-name">风险管理 (Risk Management)</div><div class="term-def">识别、量化并应对威胁的过程。五大措施：避免、防范、降低、转移、融资。</div></div>
+    <div class="glossary-term"><div class="term-name">合约 (Contract)</div><div class="term-def">法律上可强制执行的承诺或承担。保险单不是合约本身，而是证明合约的凭证。</div></div>
+    <div class="glossary-term"><div class="term-name">简单合约 (Simple Contract)</div><div class="term-def">形式简单的合约—口头、不经盖章的书面、或从行为推断。绝大部分保险合约属此类。</div></div>
+    <div class="glossary-term"><div class="term-name">契据 (Deed)</div><div class="term-def">必须经签署、盖章和交付的书面文书。例如土地转让。</div></div>
+    <div class="glossary-term"><div class="term-name">合约六大要素</div><div class="term-def">要约、承约、代价、订约行为能力、合法性、订立法律关系意向。缺一不可。</div></div>
+    <div class="glossary-term"><div class="term-name">代理 (Agency)</div><div class="term-def">委托人委托代理人代其行事。"透过他人行事与自己亲自执行并无分别"。</div></div>
+    <div class="glossary-term"><div class="term-name">可保权益 (Insurable Interest)</div><div class="term-def">投保人与保险标的之间具有法律认可的关系。没有可保权益，保险合约无效。</div></div>
+    <div class="glossary-term"><div class="term-name">最高诚信 (Utmost Good Faith)</div><div class="term-def">投保人必须主动披露所有重要事实。比一般商业合约的"一般诚信"要求更高。</div></div>
+    <div class="glossary-term"><div class="term-name">重要事实 (Material Fact)</div><div class="term-def">影响审慎保险人定保费或决定是否承保的任何情况。不披露即违反最高诚信。</div></div>
+    <div class="glossary-term"><div class="term-name">近因 (Proximate Cause)</div><div class="term-def">损失的有效或主导成因。不是时间上最近的，而是最决定性的那个原因。</div></div>
+    <div class="glossary-term"><div class="term-name">弥偿 (Indemnity)</div><div class="term-def">对损失作出不多也不少的精确财务补偿。让人回到损失前的经济状态。</div></div>
+    <div class="glossary-term"><div class="term-name">比例分摊 (Average/Proportionate)</div><div class="term-def">不足额投保时，赔偿金额按保额占实际价值的比例递减。惩罚不足额投保。</div></div>
+    <div class="glossary-term"><div class="term-name">免赔额 (Deductible)</div><div class="term-def">每次索赔中被保险人自付的固定金额。超过的部分保险公司再赔。</div></div>
+    <div class="glossary-term"><div class="term-name">起赔额 (Franchise)</div><div class="term-def">损失达到或超过这个金额才全额赔付；低于则不赔。</div></div>
+    <div class="glossary-term"><div class="term-name">分担 (Contribution)</div><div class="term-def">重复保险时，多个保险人按比例分摊赔款。人寿保险不适用分担。</div></div>
+    <div class="glossary-term"><div class="term-name">代位 (Subrogation)</div><div class="term-def">保险人赔了被保险人后，取得被保险人对第三者的索偿权利。追回的金额不超过赔付额。</div></div>
+    <div class="glossary-term"><div class="term-name">核保 (Underwriting)</div><div class="term-def">保险公司选择承保的风险和决定保险条款的过程。核心是评估风险。</div></div>
+    <div class="glossary-term"><div class="term-name">再保险 (Reinsurance)</div><div class="term-def">保险人给自己买保险，把承保的部分风险转移给其他保险人。对被保险人无直接影响。</div></div>
+    <div class="glossary-term"><div class="term-name">保监局 (IA)</div><div class="term-def">香港保险业监管局。负责执行《保险业条例》，监管保险公司和中介人。</div></div>
+    <div class="glossary-term"><div class="term-name">适当人选 (Fit and Proper)</div><div class="term-def">保监局审批牌照和负责人认可的标准：学历/经验、能力、信誉、财政状况等。</div></div>
+    <div class="glossary-term"><div class="term-name">保险投诉局 (ICB)</div><div class="term-def">提供另类调解机制，处理个人保单引起的金钱纠纷。最高裁定金额100万港元。</div></div>
+    <div class="glossary-term"><div class="term-name">洗钱 (Money Laundering)</div><div class="term-def">三步：存放→分层交易→整合。保险产品常被用于分层交易和整合阶段。</div></div>
   </div>
 </div>
 
-<!-- ==================== 自我测验 ==================== -->
-<div class="section" id="sec-quiz">
-  <h1>自我测验</h1>
-  <p style="color:var(--text2);margin-bottom:20px;">共 16 题，点击选项查看对错和解析</p>
-  <div class="quiz-score" id="quizScore">正确：0 / 16</div>
+<!-- ==================== FLASHCARDS ==================== -->
+<div class="section" id="sec-flashcards">
+  <span class="tag tag-purple">🃏 知识卡片</span>
+  <h1>知识卡片复习</h1>
+  <p style="margin-bottom:12px;font-size:14px;color:var(--text2);">点击卡片翻转看答案。逐张学习，巩固记忆。</p>
+
+  <div class="study-controls">
+    <button class="btn btn-primary" onclick="prevCard()">⬅ 上一张</button>
+    <button class="btn btn-success" onclick="nextCard()">下一张 ➡</button>
+    <button class="btn btn-secondary" onclick="shuffleCards()">🔀 随机</button>
+  </div>
+  <div class="card" style="text-align:center;padding:10px;">
+    <span id="cardCounter" style="font-size:13px;color:var(--text2);">卡片 1 / 25</span>
+  </div>
+  <div id="cardContainer" class="flashcard-wrap">
+    <div class="flashcard" id="currentCard" onclick="this.classList.toggle('flipped')">
+      <div class="flashcard-front" id="cardFront">
+        <div style="font-size:18px;font-weight:600;margin-bottom:8px;" id="cardTerm">风险</div>
+        <div class="hint">👆 点击翻转查看定义</div>
+      </div>
+      <div class="flashcard-back" id="cardBack">
+        <div style="font-size:14px;line-height:1.7;" id="cardDef">与潜在损失有关的不确定性。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== COMPREHENSIVE QUIZ ==================== -->
+<div class="section" id="sec-quiz-all">
+  <span class="tag tag-star">📝 综合测验</span>
+  <h1>综合测验</h1>
+  <p style="font-size:14px;color:var(--text2);margin-bottom:12px;">包含全书重点题目。点击选项作答，完成后显示成绩。</p>
+
   <div id="quizContainer"></div>
+  <div class="study-controls" id="quizActions">
+    <button class="btn btn-success" onclick="gradeQuiz()">📊 提交答案</button>
+    <button class="btn btn-secondary" onclick="resetQuiz()">🔄 重新作答</button>
+  </div>
+  <div id="quizResult" style="display:none;" class="card">
+    <div style="text-align:center;padding:10px;">
+      <div style="font-size:36px;font-weight:700;" id="scoreDisplay">0/0</div>
+      <div style="font-size:16px;color:var(--text2);margin-top:4px;" id="scorePct">0%</div>
+    </div>
+  </div>
 </div>
 
-</div>
+</div><!-- .main -->
 
-<button class="night-toggle" id="nightToggle">🌙 夜间模式</button>
+<button class="night-toggle" id="nightToggle">🌙 夜间</button>
 
 <script>
-// ===== Navigation =====
+// ==================== NAVIGATION ====================
+const sections = document.querySelectorAll('.section');
+const links = document.querySelectorAll('.sidebar a[data-section]');
+function navigateTo(sectionId) {
+  sections.forEach(s => s.classList.remove('active'));
+  links.forEach(l => l.classList.remove('active'));
+  const sec = document.getElementById('sec-' + sectionId);
+  if (sec) sec.classList.add('active');
+  const link = document.querySelector(`.sidebar a[data-section="${sectionId}"]`);
+  if (link) link.classList.add('active');
+  localStorage.setItem('iiqe-section', sectionId);
+  if (window.innerWidth <= 768) closeSidebar();
+  window.scrollTo(0,0);
+}
+links.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    navigateTo(a.dataset.section);
+  });
+});
+document.querySelectorAll('.weight-bar-wrap').forEach(w => {
+  w.addEventListener('click', () => {
+    const t = w.dataset.target;
+    if (t) navigateTo(t);
+  });
+});
+
+// ==================== SIDEBAR ====================
 const sidebar = document.getElementById('sidebar');
 const overlay = document.getElementById('overlay');
 const hamburger = document.getElementById('hamburger');
-const sections = document.querySelectorAll('.section');
-const navLinks = document.querySelectorAll('.sidebar a[data-section]');
+function openSidebar() { sidebar.classList.add('open'); overlay.classList.add('show'); }
+function closeSidebar() { sidebar.classList.remove('open'); overlay.classList.remove('show'); }
+hamburger.addEventListener('click', openSidebar);
+overlay.addEventListener('click', closeSidebar);
 
-function showSection(id) {
-  sections.forEach(s => s.classList.remove('active'));
-  const target = document.getElementById('sec-' + id);
-  if (target) target.classList.add('active');
-  navLinks.forEach(a => a.classList.toggle('active', a.dataset.section === id));
-  if (window.innerWidth <= 768) {
-    sidebar.classList.remove('open');
-    overlay.classList.remove('show');
-  }
-}
-
-navLinks.forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    showSection(a.dataset.section);
-  });
-});
-
-hamburger.addEventListener('click', () => {
-  sidebar.classList.toggle('open');
-  overlay.classList.toggle('show');
-});
-overlay.addEventListener('click', () => {
-  sidebar.classList.remove('open');
-  overlay.classList.remove('show');
-});
-
-// Weight bar click to navigate
-document.querySelectorAll('.weight-bar-wrap').forEach(w => {
-  w.addEventListener('click', () => {
-    const target = w.dataset.target;
-    if (target) showSection(target);
-  });
-});
-
-// ===== Night Mode =====
-const nightToggle = document.getElementById('nightToggle');
-const isDark = localStorage.getItem('iiqe-dark') === 'true';
-if (isDark) { document.body.classList.add('dark'); nightToggle.textContent = '☀️ 日间模式'; }
-nightToggle.addEventListener('click', () => {
+// ==================== DARK MODE ====================
+const nt = document.getElementById('nightToggle');
+if (localStorage.getItem('iiqe-dark') === '1') { document.body.classList.add('dark'); nt.textContent = '☀️ 白天'; }
+nt.addEventListener('click', () => {
   document.body.classList.toggle('dark');
-  const dark = document.body.classList.contains('dark');
-  localStorage.setItem('iiqe-dark', dark);
-  nightToggle.textContent = dark ? '☀️ 日间模式' : '🌙 夜间模式';
+  const d = document.body.classList.contains('dark');
+  nt.textContent = d ? '☀️ 白天' : '🌙 夜间';
+  localStorage.setItem('iiqe-dark', d ? '1' : '0');
 });
 
-// ===== Checklist + Progress =====
-const progressBar = document.getElementById('progressBar');
-const progressText = document.getElementById('progressText');
-const quizScore = document.getElementById('quizScore');
-
-function updateProgress() {
-  const checks = document.querySelectorAll('.checklist input[type="checkbox"]');
-  const total = checks.length + 16; // 16 quiz questions
-  const checked = Array.from(checks).filter(c => c.checked).length;
-  const quizCorrect = parseInt(localStorage.getItem('iiqe-quiz-correct') || '0');
-  const done = checked + quizCorrect;
-  const pct = total > 0 ? Math.round(done / total * 100) : 0;
-  progressBar.style.width = pct + '%';
-  progressText.textContent = pct + '% 完成';
-}
-
-document.querySelectorAll('.checklist input[type="checkbox"]').forEach(cb => {
-  const key = 'iiqe-check-' + cb.parentElement.textContent.trim().slice(0, 40);
-  cb.checked = localStorage.getItem(key) === 'true';
-  cb.addEventListener('change', () => {
-    localStorage.setItem(key, cb.checked);
-    updateProgress();
-  });
-});
-
-// ===== Quiz =====
-const quizData = [
-  { ch: "第1章", q: "以下哪个属于「纯粹风险」？", opts: ["A. 炒股票", "B. 买彩票", "C. 火灾损失", "D. 创业投资"], ans: 2, exp: "纯粹风险 = 只亏不赚（火灾、车祸、生病）。炒股、创业、赌博是投机风险（有赚有赔）。" },
-  { ch: "第1章", q: "保险最核心的基本功能是什么？", opts: ["A. 创造就业", "B. 风险转移机制", "C. 增加储蓄", "D. 促进经济增长"], ans: 1, exp: "保险的核心功能是风险转移机制：交保费 → 保险公司扛风险 → 出事赔钱。其他都是辅助功能。" },
-  { ch: "第2章", q: "以下哪个不是合约的有效要素？", opts: ["A. 要约", "B. 代价", "C. 书面形式", "D. 合法性"], ans: 2, exp: "合约6要素：要约、承约、代价、订约的行为能力、合法性、订立法律关系的意向。书面形式不是必须的。" },
-  { ch: "第2章", q: "代理人搞出的事，委托人也要负责，这叫什么？", opts: ["A. 表面权限", "B. 转承责任", "C. 追认", "D. 不容反悔的代理权"], ans: 1, exp: "转承责任（Vicarious Liability）：代理人做的事 = 委托人自己做的事，代理人搞的事委托人要负责。" },
-  { ch: "第3章", q: "人寿保险中，可保权益需要在什么时候存在？", opts: ["A. 保单开始生效时", "B. 损失发生时", "C. 任何时候都可以", "D. 理赔时"], ans: 0, exp: "人寿保险：可保权益在保单开始生效时必须有。后续离婚了也不影响（经典案例：前妻仍可获赔）。水险/其他保险则是在损失发生时需要有。" },
-  { ch: "第3章", q: "以下哪种情况违反「最高诚信」原则？", opts: ["A. 投保人提供了自己知道的所有信息", "B. 投保人故意隐瞒了吸烟史", "C. 保险公司问什么答什么", "D. 投保人如实回答了所有问题"], ans: 1, exp: "最高诚信要求投保人主动披露所有重要事实，即使保险公司没问。故意隐瞒（欺诈性不披露）违反最高诚信。" },
-  { ch: "第3章", q: "火险保的房子着火，消防员救火时砸门造成额外损坏，赔不赔？", opts: ["A. 不赔，因为砸门不是火灾", "B. 赔，因为源头是受保危险", "C. 赔一半", "D. 不赔，砸门是除外责任"], ans: 1, exp: "赔！近因原则：额外损坏虽然本身是「不保危险」，但根源是「受保危险（火灾）」引起的，所以赔。" },
-  { ch: "第3章", q: "关于免赔额和起赔额的描述，哪个是对的？", opts: ["A. 免赔额 = 超过了全赔", "B. 起赔额 = 只赔超过的部分", "C. 免赔额 = 自己先掏的钱，超过部分才赔", "D. 两者没有区别"], ans: 2, exp: "免赔额：先自己掏，超过部分保险公司赔。起赔额：没到不赔，到了就全赔（不是只赔超过的部分）。" },
-  { ch: "第4章", q: "核保（Underwriting）是指什么？", opts: ["A. 卖保险给客户", "B. 评估风险、决定保不保、收多少钱", "C. 处理理赔申请", "D. 计算准备金"], ans: 1, exp: "核保就是保险公司评估风险、决定是否承保及确定保费的过程。" },
-  { ch: "第4章", q: "精算师最关键的作用在哪个领域？", opts: ["A. 一般保险", "B. 人寿保险", "C. 医疗保险", "D. 车险"], ans: 1, exp: "精算师最核心的作用在寿险领域：算保费、算准备金、算负债。寿险更依赖数学计算（死亡率、预计利息收益）。" },
-  { ch: "第5章", q: "以下哪个不是保险的学术分类？", opts: ["A. 人身保险", "B. 财产保险", "C. 部门式分类", "D. 责任保险"], ans: 2, exp: "学术分类四种：人身保险、财产保险、责任保险、经济权益保险。部门式分类是另一种分类方式（公司内部按业务部门分）。" },
-  { ch: "第6章", q: "2019年9月23日后，香港保险中介人由谁监管？", opts: ["A. IARB", "B. CIB", "C. PIBA", "D. 保监局（IA）"], ans: 3, exp: "2019年9月23日起，三个自律规管机构统一由保监局直接发牌和监管。IARB、CIB、PIBA是旧的自律机构。" },
-  { ch: "第6章", q: "以下哪项不属于需要牌照才能从事的「受规管活动」？", opts: ["A. 拉人买保险", "B. 给保险建议", "C. 以自己的名义投资保险公司的股票", "D. 处理理赔"], ans: 2, exp: "受规管活动包括：拉人买保险、给保险建议、申请投保、续保、退保、理赔等。自己投资保险股不算受规管活动。" },
-  { ch: "第6章", q: "旧的自律规管机构中，管保险经纪的是哪个？", opts: ["A. IARB", "B. CIB", "C. PIBA", "D. 保监局"], ans: 2, exp: "PIBA = 香港专业保险经纪协会（管保险经纪）。IARB管代理人，CIB管保险顾问。" },
-  { ch: "第7章", q: "反洗钱指引《打击洗钱及恐怖分子资金筹集指引》是由哪个机构发出的？", opts: ["A. 金管局", "B. 保险业联会", "C. 保险业监管局（保监局）", "D. 证监会"], ans: 2, exp: "反洗钱指引由保险业监管局（保监局）发出，不是金管局也不是保险业联会。" },
-  { ch: "第3章", q: "以下哪个不是违反最高诚信的补救方法？", opts: ["A. 自始推翻整份合约", "B. 提出诉讼追讨赔偿", "C. 扣除部分理赔金", "D. 不予追究"], ans: 2, exp: "违反最高诚信的补救方法：自始推翻整份合约、提出诉讼追讨赔偿、不予追究。扣除部分理赔金不是法律规定的补救方法。" }
-];
-
-const container = document.getElementById('quizContainer');
-quizData.forEach((q, idx) => {
-  const div = document.createElement('div');
-  div.className = 'quiz-question';
-  div.id = 'quiz-' + idx;
-  div.innerHTML = `<h4>第${idx+1}题</h4><div class="quiz-meta">${q.ch} · ${q.q}</div>`;
-  q.opts.forEach((o, oi) => {
-    const label = document.createElement('div');
-    label.className = 'quiz-option';
-    const key = 'iiqe-quiz-' + idx;
-    const saved = localStorage.getItem(key);
-    label.innerHTML = `<input type="radio" name="q${idx}" value="${oi}"> <span>${o}</span>`;
-    label.addEventListener('click', () => {
-      if (label.classList.contains('disabled')) return;
-      document.querySelectorAll(`#quiz-${idx} .quiz-option`).forEach(el => {
-        el.classList.remove('correct', 'wrong', 'disabled');
-        el.querySelector('input').disabled = false;
-      });
-      const isCorrect = oi === q.ans;
-      label.classList.add(isCorrect ? 'correct' : 'wrong');
-      label.querySelector('input').checked = true;
-      document.querySelectorAll(`#quiz-${idx} .quiz-option`).forEach(el => {
-        if (el !== label) el.classList.add('disabled');
-      });
-      if (isCorrect) {
-        const prev = parseInt(localStorage.getItem('iiqe-quiz-correct') || '0');
-        if (localStorage.getItem(key) !== 'correct') {
-          localStorage.setItem(key, 'correct');
-          localStorage.setItem('iiqe-quiz-correct', prev + 1);
+// ==================== QUIZ ENGINE ====================
+function setupQuiz() {
+  document.querySelectorAll('.quiz-question').forEach(q => {
+    const opts = q.querySelectorAll('.quiz-option');
+    opts.forEach(o => {
+      o.addEventListener('click', function() {
+        if (this.classList.contains('disabled')) return;
+        const qq = this.closest('.quiz-question');
+        qq.querySelectorAll('.quiz-option').forEach(op => {
+          op.classList.add('disabled');
+          if (op.querySelector('input').value === qq.dataset.answer) op.classList.add('correct');
+        });
+        if (this.querySelector('input').value === qq.dataset.answer) {
+          this.classList.add('correct');
+        } else {
+          this.classList.add('wrong');
         }
-      } else {
-        localStorage.setItem(key, 'wrong');
-        // Show correct answer
-        document.querySelectorAll(`#quiz-${idx} .quiz-option`)[q.ans].classList.add('correct');
-      }
-      document.querySelectorAll(`#quiz-${idx} .quiz-option input`).forEach(inp => inp.disabled = true);
-      updateQuizScore();
-      updateProgress();
-    });
-    div.appendChild(label);
-  });
-  const fb = document.createElement('div');
-  fb.className = 'quiz-feedback';
-  fb.innerHTML = q.exp;
-  div.appendChild(fb);
-  container.appendChild(div);
-});
-
-function updateQuizScore() {
-  const correct = parseInt(localStorage.getItem('iiqe-quiz-correct') || '0');
-  quizScore.textContent = `正确：${correct} / ${quizData.length}`;
-}
-updateQuizScore();
-updateProgress();
-
-// Restore saved quiz state
-quizData.forEach((q, idx) => {
-  const key = 'iiqe-quiz-' + idx;
-  const val = localStorage.getItem(key);
-  if (val) {
-    const opts = document.querySelectorAll(`#quiz-${idx} .quiz-option`);
-    if (val === 'correct') {
-      opts[q.ans].classList.add('correct', 'disabled');
-      opts[q.ans].querySelector('input').checked = true;
-    } else if (val === 'wrong') {
-      opts.forEach((o, oi) => {
-        o.classList.add('disabled');
-        if (oi === q.ans) o.classList.add('correct');
+        const fb = qq.querySelector('.quiz-feedback');
+        if (fb) fb.classList.add('show');
       });
-    }
-    opts.forEach(o => o.querySelector('input').disabled = true);
-  }
+    });
+  });
+}
+setupQuiz();
+
+// ==================== GLOSSARY ====================
+document.querySelectorAll('.glossary-term').forEach(t => {
+  t.addEventListener('click', () => t.classList.toggle('open'));
 });
 
-// ===== Reset quiz (add link in sidebar) =====
+// ==================== FLASHCARDS ====================
+const cards = [
+  {term:"风险", def:"与潜在损失有关的不确定性。未来可能发生坏事但不一定。分为纯粹风险/投机风险、特定风险/基本风险。"},
+  {term:"纯粹风险 vs 投机风险", def:"纯粹风险：只有损失可能（可保）。投机风险：可能赚也可能亏（较不可保）。"},
+  {term:"特定风险 vs 基本风险", def:"特定风险：影响小范围（可保）。基本风险：影响大范围、个人无法控制（较不可保）。"},
+  {term:"风险管理5措施", def:"①风险避免 ②损失防范 ③损失降低 ④风险转移（含保险）⑤风险融资"},
+  {term:"保险的基本功能", def:"风险转移——交保费把潜在财务损失转移给保险人。只有一个基本功能。"},
+  {term:"合约的定义", def:"法律上可强制执行的承诺或承担。合约是无形的，保险单只是合约的凭证。"},
+  {term:"简单合约 vs 契据", def:"简单合约形式简单（口头/书面/行为推断），绝大多数保险合约属此类。契据需签署+盖章+交付书面文书。"},
+  {term:"合约六大要素", def:"要约、承约、代价、订约行为能力、合法性、订立法律关系的意向。"},
+  {term:"有缺陷的合约3种", def:"无效的（无法律效力）、可使无效的（受屈方可选择推翻）、不能强制执行的（需完成条件）。"},
+  {term:"代理核心原则", def:"透过他人行事与自己亲自执行并无分别。委托人负转承责任。"},
+  {term:"代理人权限5种", def:"明示实际、隐含实际、表面、必要、不容反悔。"},
+  {term:"可保权益", def:"投保人与保险标的之间必须具有法律认可关系。寿险：投保时需有。财产险：损失时需有。"},
+  {term:"最高诚信", def:"投保人必须主动披露所有重要事实。比一般诚信要求更高。"},
+  {term:"重要事实", def:"影响审慎保险人定保费或决定是否承保的任何情况。"},
+  {term:"违反最高诚信4种", def:"欺诈性失实陈述、非欺诈性失实陈述、欺诈性不披露、非欺诈性不披露。"},
+  {term:"近因原则", def:"损失的有效或主导成因。受保危险引起的不保危险也赔。"},
+  {term:"弥偿", def:"对损失不多也不少的财务补偿。方式：现金、维修、更换、恢复原状。"},
+  {term:"比例分摊", def:"不足额投保时按比例递减赔偿。100万损失保了25%→赔25万。"},
+  {term:"免赔额 vs 起赔额", def:"免赔额：每次自付固定额，超出的保险公司赔。起赔额：超过门槛才全额赔。"},
+  {term:"分担 vs 代位", def:"分担：多家保险按比例分摊。代位：保险公司赔了后取得你向第三者追偿的权利。"},
+  {term:"核保", def:"保险公司评估风险、决定是否承保及条款。人寿险不能取消保单，一般险续保时可改。"},
+  {term:"再保险", def:"保险公司给自己买保险。对被保险人无直接影响，赔款还是原公司全额给。"},
+  {term:"保监局干预权力", def:"限制保费收入、限制投资、限制新业务、指定受托人、精算调查、委任经理、清盘。"},
+  {term:"操守守则8原则", def:"诚实持正、客户利益优先、谨慎努力、胜任、披露、合适性、利益冲突、客户资产。"},
+  {term:"洗钱3步骤", def:"存放（现金入金融体系）→ 分层交易（复杂交易藏身份）→ 整合（回到正常体系）"}
+];
+let cardIndex = 0;
+function showCard(i) {
+  const c = cards[i];
+  document.getElementById('cardTerm').textContent = c.term;
+  document.getElementById('cardDef').textContent = c.def;
+  document.getElementById('cardCounter').textContent = `卡片 ${i+1} / ${cards.length}`;
+  const fc = document.getElementById('currentCard');
+  fc.classList.remove('flipped');
+}
+function nextCard() { cardIndex = (cardIndex + 1) % cards.length; showCard(cardIndex); }
+function prevCard() { cardIndex = (cardIndex - 1 + cards.length) % cards.length; showCard(cardIndex); }
+function shuffleCards() {
+  for (let i = cards.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [cards[i], cards[j]] = [cards[j], cards[i]];
+  }
+  cardIndex = 0; showCard(0);
+}
+
+// ==================== COMPREHENSIVE QUIZ ====================
+const allQuizData = [
+  {q:"风险代表的潜在损失可能包括：", a:"财务上的后果", b:"身体上的后果", c:"情绪上的后果", d:"以上都可能", ans:"d", ch:"第1章"},
+  {q:"从可保程度看，特定风险：", a:"必然可保", b:"永不可保", c:"可保程度较基本风险低", d:"可保程度较基本风险高", ans:"d", ch:"第1章"},
+  {q:"以下哪些属于投机风险？\ni. 杜琼斯指数波动 ii. 新款汽车生产 iii. 赌场火灾 iv. 赛马结果", a:"i,ii,iii", b:"i,ii,iv", c:"i,iii,iv", d:"ii,iii,iv", ans:"b", ch:"第1章"},
+  {q:"保险的基本功能是：", a:"提供储蓄", b:"风险转移", c:"增加就业", d:"以上皆是", ans:"b", ch:"第1章"},
+  {q:"保险单的正确描述是：", a:"经盖章发出的文件", b:"代理人与被保险人之间的合约", c:"证明保险合约的凭证", d:"保单损毁合约无效", ans:"c", ch:"第2章"},
+  {q:"以下哪项不是合约元素？", a:"要约", b:"承约", c:"订立法律关系的意向", d:"双方同意价格", ans:"d", ch:"第2章"},
+  {q:"可使无效的合约，如受屈方未在合理时间行动：", a:"另一方可采取法律行动", b:"合约定为无效", c:"合约继续有效", d:"已付金钱退还", ans:"c", ch:"第2章"},
+  {q:"人道情况下未获授权却为他人行事。这是哪种代理？", a:"不容反悔", b:"明示权限", c:"必要代理", d:"表面权限", ans:"c", ch:"第2章"},
+  {q:"投保人对哪些人具有可保权益？\ni. 配偶 ii. 欠债人 iii. 债权人 iv. 15岁子女", a:"i,ii,iii", b:"i,iii,iv", c:"i,ii,iv", d:"ii,iii,iv", ans:"b", ch:"第3章"},
+  {q:"哪类保险损失时才需要可保权益？\ni. 人寿保险 ii. 汽车保险 iii. 海上货物 iv. 人身意外", a:"i,ii", b:"i,iv", c:"ii,iii", d:"ii,iv", ans:"c", ch:"第3章"},
+  {q:"蓄意保留重要事实违反最高诚信—属于：", a:"欺诈性不披露", b:"非欺诈性不披露", c:"无意失实陈述", d:"欺诈性失实陈述", ans:"a", ch:"第3章"},
+  {q:"消防员救火造成的额外损害，按近因：", a:"只赔50%", b:"得不到保障", c:"受保危险导致的不保危险，受保障", d:"需延伸保障才赔", ans:"c", ch:"第3章"},
+  {q:"免赔额与起赔额，超过X时：", a:"免赔额→十足保障", b:"起赔额→十足保障", c:"免赔额→收额外保费", d:"起赔额→收额外保费", ans:"b", ch:"第3章"},
+  {q:"第三者疏忽后，哪种不会产生代位？", a:"人寿保的被保人死亡", b:"火险建筑物受损", c:"汽车全损", d:"以上皆不是", ans:"a", ch:"第3章"},
+  {q:"以大型客户为对象的保险产品指：", a:"个别产品开发", b:"产品组合开发", c:"财产组合开发", d:"一般保险开发", ans:"b", ch:"第4章"},
+  {q:"精算师最关键的工作在：", a:"一般保险", b:"财产保险", c:"人寿保险", d:"团体保险", ans:"c", ch:"第4章"},
+  {q:"人身/财产/责任/经济权益四类分类法属于：", a:"部门式", b:"法定", c:"学术", d:"业务", ans:"c", ch:"第5章"},
+  {q:"《保险业条例》主要涵盖：", a:"保险人", b:"中介人", c:"保险人及中介人", d:"代理及经纪", ans:"c", ch:"第6章"},
+  {q:"以下哪些属于干预权力？\ni. 限制保费收入 ii. 清盘 iii. 精算调查 iv. 委任经理", a:"i,iii", b:"仅iii", c:"iii,iv", d:"全部", ans:"d", ch:"第6章"},
+  {q:"保险投诉局的基本目的：", a:"代表成员处理理赔", b:"处理各类投诉", c:"处理个人保单索偿投诉", d:"处理第三者索偿", ans:"c", ch:"第6章"},
+  {q:"保护个人资料由哪个机构监察？", a:"私人资料个人专员", b:"私隐资料个人专员", c:"个人资料私人专员", d:"个人资料私隐专员公署", ans:"d", ch:"第7章"},
+  {q:"反歧视条例不包括：", a:"性别", b:"宗教", c:"家庭岗位", d:"残疾", ans:"b", ch:"第7章"}
+];
+function renderAllQuiz() {
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = '';
+  allQuizData.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = 'quiz-question';
+    div.dataset.answer = item.ans;
+    div.innerHTML = `<h4>${idx+1}. ${item.q}</h4><div class="quiz-meta">${item.ch}</div>
+      <label class="quiz-option"><input type="radio" name="allq_${idx}" value="a"> A. ${item.a}</label>
+      <label class="quiz-option"><input type="radio" name="allq_${idx}" value="b"> B. ${item.b}</label>
+      <label class="quiz-option"><input type="radio" name="allq_${idx}" value="c"> C. ${item.c}</label>
+      <label class="quiz-option"><input type="radio" name="allq_${idx}" value="d"> D. ${item.d}</label>
+      <div class="quiz-feedback" id="fb_all_${idx}"></div>`;
+    container.appendChild(div);
+  });
+}
+renderAllQuiz();
+
+function gradeQuiz() {
+  let correct = 0, total = allQuizData.length;
+  allQuizData.forEach((item, idx) => {
+    const opts = document.querySelectorAll(`input[name="allq_${idx}"]`);
+    let selected = null;
+    opts.forEach(o => { if (o.checked) selected = o.value; });
+    const fb = document.getElementById(`fb_all_${idx}`);
+    const parentDiv = fb.closest('.quiz-question');
+    parentDiv.querySelectorAll('.quiz-option').forEach(op => op.classList.add('disabled'));
+    parentDiv.querySelectorAll(`input[value="${item.ans}"]`).forEach(inp => {
+      inp.closest('.quiz-option').classList.add('correct');
+    });
+    if (selected === item.ans) {
+      correct++;
+      fb.textContent = `✅ 正确！`;
+    } else {
+      if (selected) {
+        parentDiv.querySelectorAll(`input[value="${selected}"]`).forEach(inp => {
+          inp.closest('.quiz-option').classList.add('wrong');
+        });
+      }
+      fb.textContent = `❌ 正确答案是 ${item.ans.toUpperCase()}`;
+    }
+    fb.className = 'quiz-feedback show ' + (selected === item.ans ? 'correct' : 'wrong');
+  });
+  const pct = Math.round(correct/total*100);
+  document.getElementById('scoreDisplay').textContent = `${correct}/${total}`;
+  document.getElementById('scorePct').textContent = `${pct}% 正确率`;
+  document.getElementById('quizResult').style.display = 'block';
+  // Update progress
+  updateProgress();
+}
+
+function resetQuiz() {
+  allQuizData.forEach((_, idx) => {
+    const opts = document.querySelectorAll(`input[name="allq_${idx}"]`);
+    opts.forEach(o => { o.checked = false; });
+    const fb = document.getElementById(`fb_all_${idx}`);
+    fb.className = 'quiz-feedback';
+    fb.textContent = '';
+    const parentDiv = fb.closest('.quiz-question');
+    parentDiv.querySelectorAll('.quiz-option').forEach(op => {
+      op.classList.remove('correct', 'wrong', 'disabled');
+    });
+  });
+  document.getElementById('quizResult').style.display = 'none';
+}
+
+// ==================== PROGRESS ====================
+function updateProgress() {
+  // Count how many chapter quizzes have been answered
+  let answered = 0, total = 0;
+  document.querySelectorAll('.quiz-question').forEach(q => {
+    total++;
+    if (q.querySelector('.quiz-option.correct') || q.querySelector('.quiz-option.wrong')) answered++;
+  });
+  const pct = total > 0 ? Math.round(answered/total*100) : 0;
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressText').textContent = pct + '% 完成';
+}
+// Hook into per-chapter quiz clicks
+document.addEventListener('click', function(e) {
+  if (e.target.closest('.quiz-option')) setTimeout(updateProgress, 100);
+});
+
+// ==================== RESTORE SECTION ====================
+const saved = localStorage.getItem('iiqe-section');
+if (saved && document.getElementById('sec-' + saved)) {
+  navigateTo(saved);
+}
 </script>
 </body>
 </html>
