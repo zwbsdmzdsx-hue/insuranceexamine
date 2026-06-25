@@ -223,26 +223,26 @@ h3 { font-size: 17px; margin: 22px 0 10px; color: var(--text); }
 </head>
 <body>
 
-<button class="hamburger" id="hamburger" aria-label="Menu">\u2630</button>
+<button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
 <div class="sidebar-overlay" id="overlay"></div>
 
 <nav class="sidebar" id="sidebar">
   <div class="sidebar-header">
-    <h2>📘 IIQE \u5377\u4e00</h2>
-    <p>\u4fdd\u9669\u539f\u7406\u53ca\u5b9e\u52a1 \u00b7 \u7cbe\u8bfb\u901a\u5173</p>
+    <h2>📘 IIQE 卷一</h2>
+    <p>保险原理及实务 · 精读通关</p>
   </div>
   <div class="progress-wrap">
     <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBarFill"></div></div>
-    <div class="progress-text" id="progressText">\u5b66\u4e60\u8fdb\u5ea6 0%</div>
+    <div class="progress-text" id="progressText">学习进度 0%</div>
   </div>
   <div style="padding:0 20px 8px">
-    <input class="search-box" id="searchInput" type="text" placeholder="🔍 \u641c\u7d22\u77e5\u8bc6\u70b9..." />
+    <input class="search-box" id="searchInput" type="text" placeholder="🔍 搜索知识点..." />
   </div>
   <ul class="ch-nav" id="chNav"></ul>
   <div class="sidebar-footer">
-    <a href="#" data-section="full-quiz">📝 \u7efc\u5408\u6a21\u62df\u6d4b\u8bd5</a>
-    <a href="#" data-section="tips">💡 \u7b54\u9898\u6280\u5de7</a>
-    <a href="#" onclick="resetAll();return false;">🔄 \u91cd\u7f6e\u5b66\u4e60\u8fdb\u5ea6</a>
+    <a href="#" data-section="full-quiz">📝 综合模拟测试</a>
+    <a href="#" data-section="tips">💡 答题技巧</a>
+    <a href="#" onclick="resetAll();return false;">🔄 重置学习进度</a>
   </div>
 </nav>
 
@@ -250,7 +250,7 @@ h3 { font-size: 17px; margin: 22px 0 10px; color: var(--text); }
   <div id="app"></div>
 </div>
 
-<button class="night-toggle" id="nightToggle">🌙 \u591c\u95f4\u6a21\u5f0f</button>
+<button class="night-toggle" id="nightToggle">🌙 夜间模式</button>
 
 <script>
 // ==== DATA ====
@@ -1237,16 +1237,16 @@ const CHAPTER_META = {
 };
 
 const TIPS_DATA = [
-  {num: 1, title: "\u6587\u5b57\u63a8\u7406", text: "\u5927\u90e8\u4efd\u95ee\u9898\u5e76\u975e\u76f4\u95ee\u76f4\u7b54\uff0c\u9700\u63a8\u6572\u624d\u80fd\u9009\u51fa\u6b63\u786e\u7b54\u6848\u3002"},
-  {num: 2, title: "\u4f5c\u8bb0\u53f7", text: "\u9898\u76ee\u53d9\u8ff0\u7d2f\u8d4c\u65f6\u7528\u7b14\u65ad\u8bcd\u3001\u5212\u91cd\u70b9\uff0c\u8ba9\u9898\u76ee\u53d8\u7b80\u6d01\u3002"},
-  {num: 3, title: "\u7559\u610f\u80af\u5b9a/\u5426\u5b9a", text: "\u627e\u51fa\u53cc\u91cd\u5426\u5b9a\u7684\u8bed\u610f\uff0c\u641e\u6e05\u695a\u903b\u8f91\u3002"},
-  {num: 4, title: "\u4e2d\u82f1\u5bf9\u7167\u53c2\u8003", text: "\u4e2d\u6587\u96be\u7406\u89e3\u65f6\u53ef\u53c2\u8003\u82f1\u6587\u7248\u3002"},
-  {num: 5, title: "\u7b54\u6848\u7ec4\u5408\u63a8\u7406", text: "\u591a\u7ec4\u9009\u9879\u5f0f\u9898\u76ee\uff0c\u5206\u6790\u7b54\u6848\u7ec4\u5408\u80fd\u63a8\u6572\u7b54\u6848\u3002"},
-  {num: 6, title: "\u6d88\u53bb\u6cd5", text: "\u628a\u660e\u663e\u9519\u7684\u7b54\u6848\u5148\u5254\u9664\uff0c\u7b5b\u9009\u51fa\u6b63\u786e\u7b54\u6848\u3002"},
-  {num: 7, title: "\u6bd4\u8f83\u7b54\u6848", text: "\u591a\u4e2a\u7b54\u6848\u4f3c\u4e4e\u90fd\u5bf9\u65f6\uff0c\u6bd4\u8f83\u5dee\u522b\u627e\u51fa\u6700\u8d34\u5207\u7684\u3002"},
-  {num: 8, title: "\u4e0d\u61c2\u5148\u586b", text: "\u522b\u82b1\u592a\u591a\u65f6\u95f4\u5728\u4e00\u9898\uff0c\u5148\u9009D\uff0c\u56de\u5934\u518d\u590d\u6838\u3002"},
-  {num: 9, title: "\u201c\u4ee5\u4e0a\u6240\u6709\u201d\u4f18\u5148", text: "\u6beb\u65e0\u5934\u7eea\u65f6\uff0c\u9009\u201c\u4ee5\u4e0a\u6240\u6709\u5404\u9879\u201d\u547d\u4e2d\u7387\u8f83\u9ad8\u3002"},
-  {num: 10, title: "\u76f8\u4fe1\u76f4\u89c9", text: "\u53cd\u590d\u601d\u8003\u4ecd\u4e0d\u786e\u5b9a\u65f6\uff0c\u4ee5\u7b2c\u4e00\u76f4\u89c9\u4e3a\u51c6\u3002"}
+  {num: 1, title: "文字推理", text: "大部份问题并非直问直答，需推敲才能选出正确答案。"},
+  {num: 2, title: "作记号", text: "题目叙述累赌时用笔断词、划重点，让题目变简洁。"},
+  {num: 3, title: "留意肯定/否定", text: "找出双重否定的语意，搞清楚逻辑。"},
+  {num: 4, title: "中英对照参考", text: "中文难理解时可参考英文版。"},
+  {num: 5, title: "答案组合推理", text: "多组选项式题目，分析答案组合能推敲答案。"},
+  {num: 6, title: "消去法", text: "把明显错的答案先剔除，筛选出正确答案。"},
+  {num: 7, title: "比较答案", text: "多个答案似乎都对时，比较差别找出最贴切的。"},
+  {num: 8, title: "不懂先填", text: "别花太多时间在一题，先选D，回头再复核。"},
+  {num: 9, title: "“以上所有”优先", text: "毫无头绪时，选“以上所有各项”命中率较高。"},
+  {num: 10, title: "相信直觉", text: "反复思考仍不确定时，以第一直觉为准。"}
 ];
 
 // ==== STATE ====
@@ -1268,7 +1268,7 @@ function render() {
     a.href = '#';
     a.dataset.section = 'ch' + ch;
     if (currentSection === 'ch' + ch) a.className = 'active';
-    a.innerHTML = '<span class="ch-icon">' + m.icon + '</span><span class="ch-name">\u7b2c' + ch + '\u7ae0 ' + m.title + '</span><span class="ch-badge" style="background:' + m.color + ';color:#fff">' + m.weight + '%</span>';
+    a.innerHTML = '<span class="ch-icon">' + m.icon + '</span><span class="ch-name">第' + ch + '章 ' + m.title + '</span><span class="ch-badge" style="background:' + m.color + ';color:#fff">' + m.weight + '%</span>';
     a.addEventListener('click', function(e) {
       e.preventDefault();
       currentSection = this.dataset.section;
@@ -1323,43 +1323,43 @@ function renderHome() {
   var done = 0;
   for (var k in progress) if (progress[k]) done++;
   
-  var h = '<h1>📘 IIQE \u5377\u4e00 \u00b7 \u4fdd\u9669\u539f\u7406\u53ca\u5b9e\u52a1</h1><p class="ch-subtitle">\u4fdd\u9669\u4e2d\u4ecb\u4eba\u8d44\u683c\u8003\u8bd5 \u00b7 \u7cbe\u8bfb\u901a\u5173\u5b66\u4e60\u5e73\u53f0</p>';
+  var h = '<h1>📘 IIQE 卷一 · 保险原理及实务</h1><p class="ch-subtitle">保险中介人资格考试 · 精读通关学习平台</p>';
   
   h += '<div class="card" style="text-align:center;padding:24px;">';
   h += '<div style="font-size:36px;margin-bottom:8px;">🎯</div>';
-  h += '<h3 style="margin:0 0 6px;">\u6b22\u8fce\u6765\u5230 IIQE \u5377\u4e00\u5b66\u4e60\u7cfb\u7edf</h3>';
-  h += '<p style="font-size:14px;color:var(--text2);">\u5168\u7a0b\u901a\u4fd7\u8bb2\u89e3 \u00b7 \u6bcf\u8282\u914d\u6848\u4f8b \u00b7 \u4ea4\u4e92\u5f0f\u6d4b\u9a8c \u00b7 \u77e5\u8bc6\u5361\u7247\u8bb0\u5fc6</p>';
-  h += '<p style="font-size:13px;color:var(--text2);margin-top:10px;">\u8003\u8bd5\uff1a75\u9053\u9009\u62e9\u9898 \u00b7 \u5efa\u8bae\u6e29\u4e6020\u5c0f\u65f6 \u00b7 \u4e2d\u82f1\u5bf9\u7167</p></div>';
+  h += '<h3 style="margin:0 0 6px;">欢迎来到 IIQE 卷一学习系统</h3>';
+  h += '<p style="font-size:14px;color:var(--text2);">全程通俗讲解 · 每节配案例 · 交互式测验 · 知识卡片记忆</p>';
+  h += '<p style="font-size:13px;color:var(--text2);margin-top:10px;">考试：75道选择题 · 建议温习20小时 · 中英对照</p></div>';
   
   h += '<div class="intro-grid">';
-  h += '<div class="stat-card"><div class="stat-num">' + totalQ + '</div><div class="stat-label">\u5168\u5377\u603b\u9898\u6570</div></div>';
-  h += '<div class="stat-card"><div class="stat-num">7\u7ae0</div><div class="stat-label">\u6838\u5fc3\u5b66\u4e60\u7ae0\u8282</div></div>';
-  h += '<div class="stat-card"><div class="stat-num">' + done + '/7</div><div class="stat-label">\u5df2\u5b8c\u6210\u7ae0\u8282</div></div>';
-  h += '<div class="stat-card"><div class="stat-num">20h</div><div class="stat-label">\u5efa\u8bae\u6e29\u4e60\u65f6\u95f4</div></div></div>';
+  h += '<div class="stat-card"><div class="stat-num">' + totalQ + '</div><div class="stat-label">全卷总题数</div></div>';
+  h += '<div class="stat-card"><div class="stat-num">7章</div><div class="stat-label">核心学习章节</div></div>';
+  h += '<div class="stat-card"><div class="stat-num">' + done + '/7</div><div class="stat-label">已完成章节</div></div>';
+  h += '<div class="stat-card"><div class="stat-num">20h</div><div class="stat-label">建议温习时间</div></div></div>';
   
-  h += '<h2>📊 \u7ae0\u8282\u6bd4\u91cd</h2><div class="weight-section">';
+  h += '<h2>📊 章节比重</h2><div class="weight-section">';
   
   var sorted = Object.keys(CHAPTER_META).sort(function(a,b) { return CHAPTER_META[b].weight - CHAPTER_META[a].weight; });
   for (var i = 0; i < sorted.length; i++) {
     var ch = sorted[i];
     var m = CHAPTER_META[ch];
-    var star = m.weight >= 20 ? ' \u2b50' : '';
+    var star = m.weight >= 20 ? ' ⭐' : '';
     h += '<div class="weight-item" onclick="goToChapter(' + ch + ')">';
-    h += '<div class="w-label">' + m.icon + ' \u7b2c' + ch + '\u7ae0</div>';
+    h += '<div class="w-label">' + m.icon + ' 第' + ch + '章</div>';
     h += '<div class="w-track"><div class="w-fill" style="width:' + (m.weight * 2.8) + '%;background:' + m.color + '">' + m.weight + '%</div></div>';
-    h += '<div class="w-pct">' + m.questions + '\u9898' + star + '</div></div>';
+    h += '<div class="w-pct">' + m.questions + '题' + star + '</div></div>';
   }
   h += '</div>';
   
-  h += '<h2>⚡ \u5feb\u901f\u5165\u95e8</h2><div class="tips-grid">';
-  h += '<div class="tip-card" onclick="goToChapter(3)" style="cursor:pointer;"><h4 style="color:var(--orange);">\u7b2c3\u7ae0 \u00b7 \u4fdd\u9669\u539f\u5219</h4><p style="font-size:12px;color:var(--text2);">\u535730%\u8003\u9898\uff01\u6700\u9ad8\u8bda\u4fe1\u3001\u53ef\u4fdd\u6743\u76ca\u3001\u8fd1\u56e0\u3001\u5f25\u507f\u7b49\u6838\u5fc3\u6982\u5ff5</p></div>';
-  h += '<div class="tip-card" onclick="goToChapter(6)" style="cursor:pointer;"><h4 style="color:var(--purple);">🏛 \u7b2c6\u7ae0 \u00b7 \u89c4\u7ba1\u67b6\u6784</h4><p style="font-size:12px;color:var(--text2);">\u535721%\u8003\u9898\uff01\u4fdd\u76d1\u5c40\u3001\u6301\u724c\u5236\u5ea6\u3001\u4e2d\u4ecb\u4eba\u89c4\u7ba1</p></div>';
-  h += '<div class="tip-card" onclick="goToChapter(2)" style="cursor:pointer;"><h4 style="color:var(--accent);">\u2696\ufe0f \u7b2c2\u7ae0 \u00b7 \u6cd5\u5f8b\u539f\u5219</h4><p style="font-size:12px;color:var(--text2);">\u535716%\uff01\u5408\u7ea6\u3001\u4ee3\u7406\u6cd5\u57fa\u7840</p></div>';
-  h += '<div class="tip-card" onclick="goToChapter(1)" style="cursor:pointer;"><h4 style="color:var(--teal);">\u26a0\ufe0f \u7b2c1\u7ae0 \u00b7 \u98ce\u9669\u53ca\u4fdd\u9669</h4><p style="font-size:12px;color:var(--text2);">\u57fa\u7840\u77e5\u8bc6\uff0c\u7eaf\u7cb9\u98ce\u9669vs\u6295\u673a\u98ce\u9669\u7b49</p></div></div>';
+  h += '<h2>⚡ 快速入门</h2><div class="tips-grid">';
+  h += '<div class="tip-card" onclick="goToChapter(3)" style="cursor:pointer;"><h4 style="color:var(--orange);">第3章 · 保险原则</h4><p style="font-size:12px;color:var(--text2);">南30%考题！最高诚信、可保权益、近因、弥偿等核心概念</p></div>';
+  h += '<div class="tip-card" onclick="goToChapter(6)" style="cursor:pointer;"><h4 style="color:var(--purple);">🏛 第6章 · 规管架构</h4><p style="font-size:12px;color:var(--text2);">南21%考题！保监局、持牌制度、中介人规管</p></div>';
+  h += '<div class="tip-card" onclick="goToChapter(2)" style="cursor:pointer;"><h4 style="color:var(--accent);">⚖️ 第2章 · 法律原则</h4><p style="font-size:12px;color:var(--text2);">南16%！合约、代理法基础</p></div>';
+  h += '<div class="tip-card" onclick="goToChapter(1)" style="cursor:pointer;"><h4 style="color:var(--teal);">⚠️ 第1章 · 风险及保险</h4><p style="font-size:12px;color:var(--text2);">基础知识，纯粹风险vs投机风险等</p></div></div>';
   
-  h += '<h2>💡 \u7b54\u9898\u6280\u5de7</h2><div class="card" style="text-align:center;"><p style="font-size:13px;color:var(--text2);">\u6d4f\u89c810\u5927\u7b54\u9898\u6280\u5de7\uff0c\u638c\u63e1\u8003\u8bd5\u7b56\u7565</p><button class="quiz-reset" onclick="goTo(\'tips\')">\u67e5\u770b\u6280\u5de7 \u2192</button></div>';
+  h += '<h2>💡 答题技巧</h2><div class="card" style="text-align:center;"><p style="font-size:13px;color:var(--text2);">浏览10大答题技巧，掌握考试策略</p><button class="quiz-reset" onclick="goTo(\'tips\')">查看技巧 →</button></div>';
   
-  h += '<h2>📝 \u6a21\u62df\u6d4b\u8bd5</h2><div class="card" style="text-align:center;"><p style="font-size:13px;color:var(--text2);">\u7efc\u5408\u51687\u7ae0\u6240\u6709\u4e60\u9898\uff0c\u68c0\u9a8c\u5b66\u4e60\u6210\u679c</p><button class="quiz-reset" onclick="goTo(\'full-quiz\')">\u5f00\u59cb\u6d4b\u8bd5 \u2192</button></div>';
+  h += '<h2>📝 模拟测试</h2><div class="card" style="text-align:center;"><p style="font-size:13px;color:var(--text2);">综合全7章所有习题，检验学习成果</p><button class="quiz-reset" onclick="goTo(\'full-quiz\')">开始测试 →</button></div>';
   
   return h;
 }
@@ -1368,14 +1368,14 @@ function renderHome() {
 function renderChapter(ch) {
   var data = CHAPTER_DATA[ch];
   var meta = CHAPTER_META[ch];
-  if (!data) return '<div class="card"><p>\u7ae0\u8282\u6570\u636e\u52a0\u8f7d\u4e2d...</p></div>';
+  if (!data) return '<div class="card"><p>章节数据加载中...</p></div>';
   
   var doneKey = 'ch' + ch;
   var isDone = progress[doneKey];
   var h = '<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:8px;">';
-  h += '<h1 style="margin:0;">' + meta.icon + ' \u7b2c' + ch + '\u7ae0 ' + data.title + '</h1>';
-  h += '<span class="tag tag-star" style="background:' + meta.color + ';color:#fff;">\u8003\u9898\u5360\u6bd4 ' + meta.weight + '% \u00b7 ' + meta.questions + '\u9898</span></div>';
-  h += '<div style="font-size:13px;color:var(--text2);margin-bottom:16px;">\u5b66\u4e60\u72b6\u6001\uff1a' + (isDone ? '\u2705 \u5df2\u5b66\u5b8c' : '\u23f3 \u5b66\u4e60\u4e2d') + '</div>';
+  h += '<h1 style="margin:0;">' + meta.icon + ' 第' + ch + '章 ' + data.title + '</h1>';
+  h += '<span class="tag tag-star" style="background:' + meta.color + ';color:#fff;">考题占比 ' + meta.weight + '% · ' + meta.questions + '题</span></div>';
+  h += '<div style="font-size:13px;color:var(--text2);margin-bottom:16px;">学习状态：' + (isDone ? '✅ 已学完' : '⏳ 学习中') + '</div>';
   
   for (var si = 0; si < data.sections.length; si++) {
     var sec = data.sections[si];
@@ -1386,11 +1386,11 @@ function renderChapter(ch) {
     }
     
     if (sec.cards && sec.cards.length > 0) {
-      h += '<h3>📇 \u77e5\u8bc6\u5361\u7247 <span style="font-size:12px;color:var(--text2);font-weight:400;">\uff08\u70b9\u51fb\u7ffb\u8f6c\uff09</span></h3><div class="kcard-grid">';
+      h += '<h3>📇 知识卡片 <span style="font-size:12px;color:var(--text2);font-weight:400;">（点击翻转）</span></h3><div class="kcard-grid">';
       for (var ci = 0; ci < sec.cards.length; ci++) {
         var c = sec.cards[ci];
         if (!c.term) continue;
-        h += '<div class="kcard" onclick="this.classList.toggle(\'flipped\')"><div class="kcard-inner"><div class="kcard-front"><div class="k-term">' + c.term + '</div><div class="k-hint">👆 \u70b9\u51fb\u67e5\u770b\u89e3\u91ca</div></div><div class="kcard-back"><div class="k-def">' + (c.definition || c.plain) + '</div>' + (c.plain && c.definition ? '<div class="k-plain">💡 ' + c.plain + '</div>' : '') + '</div></div></div>';
+        h += '<div class="kcard" onclick="this.classList.toggle(\'flipped\')"><div class="kcard-inner"><div class="kcard-front"><div class="k-term">' + c.term + '</div><div class="k-hint">👆 点击查看解释</div></div><div class="kcard-back"><div class="k-def">' + (c.definition || c.plain) + '</div>' + (c.plain && c.definition ? '<div class="k-plain">💡 ' + c.plain + '</div>' : '') + '</div></div></div>';
       }
       h += '</div>';
     }
@@ -1399,9 +1399,9 @@ function renderChapter(ch) {
       for (var coi = 0; coi < sec.comparisons.length; coi++) {
         var comp = sec.comparisons[coi];
         if (!comp.items || comp.items.length === 0) continue;
-        h += '<h3>📊 ' + (comp.title || '\u5bf9\u6bd4\u8868') + '</h3><div class="comp-wrap">';
+        h += '<h3>📊 ' + (comp.title || '对比表') + '</h3><div class="comp-wrap">';
         if (comp.title) h += '<div class="comp-title">' + comp.title + '</div>';
-        h += '<table class="comp-table"><tr><th style="width:24%;">\u5bf9\u6bd4\u7ef4\u5ea6</th><th class="col-a">A</th><th class="col-b">B</th></tr>';
+        h += '<table class="comp-table"><tr><th style="width:24%;">对比维度</th><th class="col-a">A</th><th class="col-b">B</th></tr>';
         for (var ii = 0; ii < comp.items.length; ii++) {
           var item = comp.items[ii];
           h += '<tr><td style="font-weight:500;">' + item.name + '</td><td class="col-a">' + item.a + '</td><td class="col-b">' + item.b + '</td></tr>';
@@ -1411,7 +1411,7 @@ function renderChapter(ch) {
     }
     
     if (sec.cases && sec.cases.length > 0) {
-      h += '<h3>🎯 \u6848\u4f8b\u8bb2\u89e3</h3>';
+      h += '<h3>🎯 案例讲解</h3>';
       for (var cai = 0; cai < sec.cases.length; cai++) {
         var ca = sec.cases[cai];
         if (!ca.title && !ca.scenario) continue;
@@ -1426,19 +1426,19 @@ function renderChapter(ch) {
     if (sec.quiz && sec.quiz.length > 0) {
       var filt = sec.quiz.filter(function(q) { return q.q && q.options && q.options.length >= 2; });
       if (filt.length > 0) {
-        h += '<h3>📝 \u672c\u8282\u6d4b\u9a8c</h3><div class="quiz-container" data-section="' + sec.id + '">';
+        h += '<h3>📝 本节测验</h3><div class="quiz-container" data-section="' + sec.id + '">';
         for (var qi = 0; qi < filt.length; qi++) {
           h += renderQuizItem(filt[qi], qi, sec.id);
         }
         h += '<div class="quiz-score" id="score-' + sec.id + '"></div>';
-        h += '<button class="quiz-reset" onclick="resetQuiz(\'' + sec.id + '\')">🔄 \u91cd\u505a\u672c\u8282\u6d4b\u9a8c</button></div>';
+        h += '<button class="quiz-reset" onclick="resetQuiz(\'' + sec.id + '\')">🔄 重做本节测验</button></div>';
       }
     }
   }
   
   h += '<div style="text-align:center;margin:24px 0;">';
   h += '<button class="quiz-reset" style="padding:10px 28px;font-size:14px;" onclick="markChapterDone(' + ch + ')">';
-  h += (isDone ? '\u2705 \u5df2\u6807\u8bb0\u5b8c\u6210' : '📌 \u6807\u8bb0\u672c\u7ae0\u5df2\u5b66\u5b8c');
+  h += (isDone ? '✅ 已标记完成' : '📌 标记本章已学完');
   h += '</button></div>';
   
   return h;
@@ -1457,18 +1457,18 @@ function renderQuizItem(q, index, sectionId) {
 
 // ==== TIPS ====
 function renderTips() {
-  var h = '<h1>💡 \u7b54\u9898\u6280\u5de7 \u00b7 10\u5927\u8d34\u58eb</h1><p class="ch-subtitle">\u7efc\u5408\u7edf\u8ba1\u548c\u524d\u4eba\u7ecf\u9a8c\uff0c\u52a9\u4f60\u63d0\u9ad8\u547d\u4e2d\u7387</p><div class="tips-grid">';
+  var h = '<h1>💡 答题技巧 · 10大贴士</h1><p class="ch-subtitle">综合统计和前人经验，助你提高命中率</p><div class="tips-grid">';
   for (var i = 0; i < TIPS_DATA.length; i++) {
     var t = TIPS_DATA[i];
     h += '<div class="tip-card"><h4><span class="tip-num">' + t.num + '</span>' + t.title + '</h4><p>' + t.text + '</p></div>';
   }
   h += '</div>';
-  h += '<h2>📋 \u8003\u8bd5\u89c4\u5219\u6458\u8981</h2><div class="card"><ul style="font-size:13px;line-height:2;">';
-  h += '<li>\u5f00\u8003\u524d\u81f3\u5c1115\u5206\u949f\u5230\u8fbe\u8bd5\u573a</li>';
-  h += '<li>\u8fdf\u523015\u5206\u949f\u4e0d\u5f97\u8fdb\u5165\uff0c\u8d39\u7528\u4e0d\u9000</li>';
-  h += '<li>\u987b\u643a\u5e26\u6709\u6548\u9999\u6e2f\u8eab\u4efd\u8bc1\u6216\u62a4\u7167\u6b63\u672c\u548c\u51c6\u8003\u8bc1</li>';
-  h += '<li>\u4e25\u7981\u4f7f\u7528\u4efb\u4f55\u901a\u8baf/\u7535\u5b50\u4eea\u5668</li>';
-  h += '<li>\u8003\u8bd5\u5f00\u59cb30\u5206\u949f\u540e\u53ef\u79bb\u573a\uff08\u7b14\u8bd5\u6700\u540e15\u5206\u949f\u4e0d\u5f97\u79bb\u573a\uff09</li></ul></div>';
+  h += '<h2>📋 考试规则摘要</h2><div class="card"><ul style="font-size:13px;line-height:2;">';
+  h += '<li>开考前至少15分钟到达试场</li>';
+  h += '<li>迟到15分钟不得进入，费用不退</li>';
+  h += '<li>须携带有效香港身份证或护照正本和准考证</li>';
+  h += '<li>严禁使用任何通讯/电子仪器</li>';
+  h += '<li>考试开始30分钟后可离场（笔试最后15分钟不得离场）</li></ul></div>';
   return h;
 }
 
@@ -1483,7 +1483,7 @@ function renderFullQuiz() {
         for (var qi = 0; qi < sec.quiz.length; qi++) {
           var q = sec.quiz[qi];
           if (q.q && q.options && q.options.length >= 2) {
-            allQuiz.push({q: q.q, options: q.options, answer: q.answer, explanation: q.explanation, source: '\u7b2c' + ch + '\u7ae0 \u00b7 ' + sec.title});
+            allQuiz.push({q: q.q, options: q.options, answer: q.answer, explanation: q.explanation, source: '第' + ch + '章 · ' + sec.title});
           }
         }
       }
@@ -1496,9 +1496,9 @@ function renderFullQuiz() {
     var tmp = allQuiz[i]; allQuiz[i] = allQuiz[j]; allQuiz[j] = tmp;
   }
   
-  if (allQuiz.length === 0) return '<div class="card"><p>\u6682\u65e0\u6d4b\u9a8c\u9898</p></div>';
+  if (allQuiz.length === 0) return '<div class="card"><p>暂无测验题</p></div>';
   
-  var h = '<h1>📝 \u7efc\u5408\u6a21\u62df\u6d4b\u8bd5</h1><p class="ch-subtitle">\u5171 ' + allQuiz.length + ' \u9053\u9898\uff08\u968f\u673a\u51fa\u9898\uff09\u00b7 \u70b9\u51fb\u9009\u9879\u67e5\u770b\u7b54\u6848\u548c\u89e3\u6790</p><div class="quiz-container" data-section="full">';
+  var h = '<h1>📝 综合模拟测试</h1><p class="ch-subtitle">共 ' + allQuiz.length + ' 道题（随机出题）· 点击选项查看答案和解析</p><div class="quiz-container" data-section="full">';
   
   for (var i = 0; i < allQuiz.length; i++) {
     var q = allQuiz[i];
@@ -1514,22 +1514,22 @@ function renderFullQuiz() {
   }
   
   h += '<div class="quiz-score" id="score-full"></div>';
-  h += '<div style="text-align:center;"><button class="quiz-reset" onclick="resetFullQuiz()">🔄 \u91cd\u65b0\u51fa\u9898\u6d4b\u8bd5</button></div></div>';
+  h += '<div style="text-align:center;"><button class="quiz-reset" onclick="resetFullQuiz()">🔄 重新出题测试</button></div></div>';
   
   return h;
 }
 
 // ==== SEARCH ====
 function renderSearchResults() {
-  if (searchResults.length === 0) return '<div class="card"><p>\u672a\u627e\u5230\u5339\u914d\u7ed3\u679c</p></div>';
-  var h = '<h1>🔍 \u641c\u7d22\u7ed3\u679c</h1><p class="ch-subtitle">\u627e\u5230 ' + searchResults.length + ' \u4e2a\u5339\u914d\u9879</p>';
+  if (searchResults.length === 0) return '<div class="card"><p>未找到匹配结果</p></div>';
+  var h = '<h1>🔍 搜索结果</h1><p class="ch-subtitle">找到 ' + searchResults.length + ' 个匹配项</p>';
   for (var i = 0; i < searchResults.length; i++) {
     var r = searchResults[i];
     var meta = CHAPTER_META[r.ch];
     h += '<div class="card" onclick="goToChapter(' + r.ch + ')" style="cursor:pointer;">';
-    h += '<span class="tag" style="background:' + meta.color + ';color:#fff;">\u7b2c' + r.ch + '\u7ae0 ' + meta.weight + '%</span>';
+    h += '<span class="tag" style="background:' + meta.color + ';color:#fff;">第' + r.ch + '章 ' + meta.weight + '%</span>';
     h += '<h4 style="margin:6px 0 4px;">' + r.sec.title + '</h4>';
-    if (r.match) h += '<p style="font-size:13px;color:var(--accent);">\u5339\u914d\uff1a' + r.match + '</p>';
+    if (r.match) h += '<p style="font-size:13px;color:var(--accent);">匹配：' + r.match + '</p>';
     h += '<p style="font-size:12px;color:var(--text2);">' + (r.sec.plain_explanation || '').slice(0, 120) + '...</p></div>';
   }
   return h;
@@ -1582,7 +1582,7 @@ function updateScore(sectionId) {
   
   var scoreEl = document.getElementById('score-' + sectionId);
   if (scoreEl && total > 0) {
-    scoreEl.textContent = '\u2705 ' + correct + '/' + total + ' \u6b63\u786e \u00b7 ' + Math.round(correct/total*100) + '%';
+    scoreEl.textContent = '✅ ' + correct + '/' + total + ' 正确 · ' + Math.round(correct/total*100) + '%';
   }
 }
 
@@ -1622,11 +1622,11 @@ function updateProgress() {
   var bar = document.getElementById('progressBarFill');
   var text = document.getElementById('progressText');
   if (bar) bar.style.width = pct + '%';
-  if (text) text.textContent = '\u5b66\u4e60\u8fdb\u5ea6 ' + pct + '% (' + done + '/7\u7ae0)';
+  if (text) text.textContent = '学习进度 ' + pct + '% (' + done + '/7章)';
 }
 
 function resetAll() {
-  if (!confirm('\u786e\u5b9a\u8981\u91cd\u7f6e\u6240\u6709\u5b66\u4e60\u8fdb\u5ea6\u5417\uff1f')) return;
+  if (!confirm('确定要重置所有学习进度吗？')) return;
   progress = {};
   localStorage.removeItem('iiqe-progress');
   render();
@@ -1653,14 +1653,14 @@ function toggleNight() {
   nightMode = !nightMode;
   document.body.classList.toggle('dark', nightMode);
   localStorage.setItem('iiqe-night', nightMode ? '1' : '0');
-  document.getElementById('nightToggle').textContent = nightMode ? '\u2600\ufe0f \u65e5\u95f4\u6a21\u5f0f' : '🌙 \u591c\u95f4\u6a21\u5f0f';
+  document.getElementById('nightToggle').textContent = nightMode ? '☀️ 日间模式' : '🌙 夜间模式';
 }
 
 // ==== INIT ====
 document.addEventListener('DOMContentLoaded', function() {
   if (nightMode) {
     document.body.classList.add('dark');
-    document.getElementById('nightToggle').textContent = '\u2600\ufe0f \u65e5\u95f4\u6a21\u5f0f';
+    document.getElementById('nightToggle').textContent = '☀️ 日间模式';
   }
   
   document.getElementById('nightToggle').addEventListener('click', toggleNight);
