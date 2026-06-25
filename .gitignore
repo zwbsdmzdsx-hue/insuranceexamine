@@ -1,1 +1,12 @@
 node_modules/
+_build_html.py
+_debug.py
+_extract.js
+_extracted_data.json
+_find_quote.py
+_merge.js
+_merged_data.json
+_normalize.py
+_patch_chapters.py
+_run.sh
+_run_normalize.sh
