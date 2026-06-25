@@ -1,0 +1,1 @@
+cd /Users/camoufcengjingdemacbook/iiqe-study && python3 _normalize.py

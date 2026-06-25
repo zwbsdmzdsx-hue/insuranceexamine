@@ -4740,11 +4740,10 @@ function renderChapter(ch) {
       h += '<h3>🎯 案例讲解</h3>';
       for (var cai = 0; cai < sec.cases.length; cai++) {
         var ca = sec.cases[cai];
-        if (!ca.title && !ca.scenario) continue;
+        if (!ca.title && !ca.description) continue;
         h += '<div class="case-card">';
         if (ca.title) h += '<div class="case-title">' + ca.title + '</div>';
-        if (ca.scenario) h += '<div class="case-scenario">' + ca.scenario.replace(/\\n/g, '<br>') + '</div>';
-        if (ca.analysis) h += '<div class="case-analysis">' + ca.analysis.replace(/\\n/g, '<br>') + '</div>';
+        if (ca.description) h += '<div class="case-scenario">' + ca.description.replace(/\\n/g, '<br>') + '</div>';
         h += '</div>';
       }
     }
